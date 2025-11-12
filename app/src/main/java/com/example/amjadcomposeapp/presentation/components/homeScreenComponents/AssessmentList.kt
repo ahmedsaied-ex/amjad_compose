@@ -1,0 +1,169 @@
+package com.example.amjadcomposeapp.presentation.components.homeScreenComponents
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.amjadcomposeapp.R
+import com.example.amjadcomposeapp.domain.models.AssessmentCardModel
+import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.AssessmentColorProvider
+
+
+@Composable
+fun AssessmentList(assessments: List<AssessmentCardModel>) {
+    LazyRow(modifier = Modifier.padding(top = 40.dp)) {
+        itemsIndexed(assessments) { index, assessment ->
+            val (initialColor, finalColor) = AssessmentColorProvider.getGradientColorsByIndex(
+                index
+            )
+
+            AssessmentCard(
+                assessment = assessment,
+                initialColor = initialColor,
+                finalColor = finalColor
+            )
+        }
+    }
+
+}
+
+@Composable
+fun AssessmentCard(assessment: AssessmentCardModel, initialColor: Int, finalColor: Int) {
+    Card(
+        modifier = Modifier
+            .padding(end = 1.dp, start = 14.dp)
+            .size(168.dp)
+        ,
+        colors = CardDefaults.cardColors(Color.White),
+        elevation = CardDefaults.cardElevation(2.dp)
+    ) {
+
+
+        Column(modifier = Modifier.fillMaxSize()) {
+            AssessmentCardImage(
+                initialColor = initialColor,
+                finalColor = finalColor,
+                img = assessment.img,
+                title = assessment.title
+
+            )
+            Row(
+                modifier = Modifier.fillMaxSize(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
+                QuestionsRaw(
+                    assessmentName = "اسئله",
+                    count = assessment.questions,
+                    image = R.drawable.help
+                )
+                QuestionsRaw(
+                    assessmentName = "دقائق",
+                    count = assessment.minutes,
+                    image = R.drawable.schedule
+                )
+            }
+
+        }
+    }
+
+}
+
+@Composable
+fun QuestionsRaw(assessmentName: String, count: Int, image: Int) {
+
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Image(
+            painter = painterResource(image),
+            contentDescription = "Assessment help",
+            modifier = Modifier.size(16.dp)
+        )
+        Spacer(modifier = Modifier.width(2.dp))
+        Text(
+            count.toString(), style = TextStyle(
+                color = colorResource(R.color.main_color_yankies),
+                fontFamily = Alexandria,
+                fontSize = 14.sp
+            )
+        )
+        Spacer(modifier = Modifier.width(2.dp))
+        Text(
+            assessmentName, style = TextStyle(
+                fontSize = 11.sp,
+                color = colorResource(R.color.shaded_assessment),
+                fontFamily = Alexandria,
+            )
+        )
+    }
+}
+
+@Composable
+fun AssessmentCardImage(initialColor: Int, finalColor: Int, img: Int, title: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(height = 122.dp)
+            .background(
+                brush = Brush.horizontalGradient(
+                    colors = listOf(
+                        colorResource(initialColor), // Orange
+                        colorResource(finalColor), // Orange
+                        // Amber
+                    )
+                )
+            )
+            .padding(all = 12.dp)
+    ) {
+        Image(
+            modifier = Modifier.align(Alignment.TopEnd),
+            alignment = Alignment.TopEnd,
+            painter = painterResource(id = img),
+            contentDescription = "Assessment image"
+        )
+        Column(modifier = Modifier.align(Alignment.BottomStart)) {
+            Text(
+                stringResource(R.string.measurement), style = TextStyle(
+                    color = colorResource(R.color.main_color_yankies),
+                    fontFamily = Alexandria,
+                    fontSize = 13.sp
+                )
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            Text(
+                text = title, style = TextStyle(
+                    color = colorResource(R.color.main_color_yankies),
+                    fontFamily = Alexandria,
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            )
+        }
+    }
+}
