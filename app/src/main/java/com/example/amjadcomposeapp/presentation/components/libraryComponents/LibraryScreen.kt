@@ -24,7 +24,6 @@ fun LibraryScreen(
     navController: NavController, viewModel: MediaViewModel = hiltViewModel()
 ) {
     val state by viewModel.uiState.collectAsState()
-
     if (state.isLoading) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
