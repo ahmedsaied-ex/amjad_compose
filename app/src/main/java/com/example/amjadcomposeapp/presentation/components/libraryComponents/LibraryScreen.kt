@@ -51,7 +51,7 @@ fun LibraryScreen(
                 if (index == 0) {
                     Spacer(modifier = Modifier.height(24.dp))
                 }
-                LibraryRequestRow(item = item)
+                LibraryRequestRow(item = item,navController = navController,viewModel=viewModel)
                 Spacer(modifier = Modifier.height(8.dp))
             }
         }

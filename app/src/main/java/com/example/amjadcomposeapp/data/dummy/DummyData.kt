@@ -319,7 +319,7 @@ val RequestItems=listOf(
             title = "مقدمة في Compose",
             description = "تعلم أساسيات Jetpack Compose وكيفية بناء واجهات مستخدم حديثة لأندرويد.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/compose-intro",
+            url = "الباذنجان هو من الخضروات المفيدة جدًا للصحة، يحتوي على مضادات أكسدة قوية تساعد على حماية الخلايا وتحسين صحة القلب وخفض الكولسترول. كما أنه يحتوي على الألياف التي تحسن الهضم وتحافظ على الوزن المثالي. الباذنجان غني بالفيتامينات والمعادن مثل فيتامين C وK والبوتاسيوم والمغنيسيوم، مما يدعم الجهاز المناعي ويقوي العظام. يُنصح بتناوله مشويًا أو مسلوقًا للحصول على أقصى فائدة من العناصر الغذائية.",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -328,7 +328,7 @@ val RequestItems=listOf(
             title = "Compose للمبتدئين",
             description = "دليل فيديو خطوة بخطوة لمساعدة المبتدئين على فهم أساسيات Compose.",
             type = MediaType.VIDEO,
-            url = "https://example.com/videos/compose-beginners",
+            url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -337,7 +337,7 @@ val RequestItems=listOf(
             title = "شرح Kotlin Coroutines",
             description = "درس صوتي يشرح الكوروتينات والتزامن المهيكل في Kotlin.",
             type = MediaType.AUDIO,
-            url = "https://example.com/audio/kotlin-coroutines",
+            url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -346,7 +346,7 @@ val RequestItems=listOf(
             title = "بناء واجهات مرنة",
             description = "تعلم كيفية بناء واجهات مستخدم مرنة وقابلة للتكيف في Compose.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/responsive-layouts",
+            url = "الباذنجان يحتوي على مركبات تساعد في خفض ضغط الدم وتحسين صحة القلب. كما يساهم في الوقاية من مرض السكري وتحسين مستويات السكر في الدم. الباذنجان منخفض السعرات وغني بالألياف، ما يجعله خيارًا ممتازًا للأشخاص الذين يسعون للتحكم في الوزن. تناوله بانتظام يعزز صحة الجهاز الهضمي ويقلل من التهابات الجسم.",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -355,7 +355,7 @@ val RequestItems=listOf(
             title = "إتقان الرسوم المتحركة في Compose",
             description = "شرح مفصل لواجهات برمجة التطبيقات الخاصة بالرسوم المتحركة في Jetpack Compose.",
             type = MediaType.VIDEO,
-            url = "https://example.com/videos/compose-animations",
+            url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -364,7 +364,7 @@ val RequestItems=listOf(
             title = "إدارة الحالة في Compose",
             description = "مقالة واضحة حول إدارة حالة واجهة المستخدم ودمج ViewModel.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/compose-state",
+            url = "الباذنجان مفيد لصحة الدماغ لأنه يحتوي على مركبات الفلافونويد التي تحمي الخلايا العصبية. كما أنه يدعم صحة العيون ويحسن وظائف الجهاز المناعي. يمكن إدراجه في النظام الغذائي بعدة طرق مثل الشوي، الطهي بالبخار، أو إضافته للسلطات، ليصبح وجبة صحية ومتنوعة.",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -373,7 +373,7 @@ val RequestItems=listOf(
             title = "العمل مع Flows",
             description = "فهم Kotlin Flow وكيفية استخدامه بشكل فعال في تطبيقات أندرويد.",
             type = MediaType.AUDIO,
-            url = "https://example.com/audio/kotlin-flow",
+            url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -382,7 +382,7 @@ val RequestItems=listOf(
             title = "التنقل في Compose",
             description = "دليل كامل للتنقل في Jetpack Compose مع أمثلة عملية.",
             type = MediaType.VIDEO,
-            url = "https://example.com/videos/compose-navigation",
+            url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -391,7 +391,7 @@ val RequestItems=listOf(
             title = "حقن التبعيات باستخدام Hilt",
             description = "استكشف Hilt وكيفية دمج حقن التبعيات في مشاريع Compose.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/hilt-compose",
+            url = "الباذنجان غني بمركبات تحمي الكبد وتساعد في إزالة السموم من الجسم. كما يساعد في تحسين الهضم ويقلل من مشاكل القولون. إدراجه في النظام الغذائي يساعد على الشعور بالشبع ويقلل من الرغبة في تناول الوجبات السريعة.",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -400,7 +400,7 @@ val RequestItems=listOf(
             title = "فهم ViewModels",
             description = "سلسلة صوتية تناقش ViewModels ودورة الحياة وحفظ الحالة.",
             type = MediaType.AUDIO,
-            url = "https://example.com/audio/viewmodels",
+            url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -409,7 +409,7 @@ val RequestItems=listOf(
             title = "تصميم واجهات مستخدم تفاعلية",
             description = "مقالة توضح كيفية إنشاء واجهات مستخدم تفاعلية باستخدام Compose.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/interactive-ui",
+            url = "الباذنجان يحتوي على مركبات مضادة للالتهابات تساعد في حماية القلب والأوعية الدموية. كما أنه يساهم في تقوية جهاز المناعة والوقاية من الأمراض المزمنة عند تناوله بانتظام.",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -418,7 +418,7 @@ val RequestItems=listOf(
             title = "تحسين الأداء في Compose",
             description = "درس فيديو يشرح أفضل الممارسات لتحسين أداء التطبيقات.",
             type = MediaType.VIDEO,
-            url = "https://example.com/videos/performance-compose",
+            url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -427,7 +427,7 @@ val RequestItems=listOf(
             title = "معالجة البيانات باستخدام Kotlin",
             description = "سلسلة صوتية عن معالجة البيانات وإدارة الحالات.",
             type = MediaType.AUDIO,
-            url = "https://example.com/audio/kotlin-data",
+            url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -436,7 +436,7 @@ val RequestItems=listOf(
             title = "تخصيص الثيمات في Compose",
             description = "مقالة تشرح كيفية تخصيص الألوان والخطوط في تطبيقك.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/compose-themes",
+            url = "الباذنجان يحتوي على مضادات أكسدة تساعد في الوقاية من السرطان وتعزز صحة الجهاز المناعي. يمكن استخدامه في الوجبات اليومية بطرق مختلفة مثل الشوي والطهي بالبخار.",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -445,7 +445,7 @@ val RequestItems=listOf(
             title = "إضافة التأثيرات الحركية",
             description = "فيديو يوضح كيفية استخدام الرسوم المتحركة لجذب المستخدم.",
             type = MediaType.VIDEO,
-            url = "https://example.com/videos/compose-effects",
+            url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -454,7 +454,7 @@ val RequestItems=listOf(
             title = "التعامل مع الأحداث في Compose",
             description = "درس صوتي يشرح طرق التعامل مع نقرات المستخدم والأحداث الأخرى.",
             type = MediaType.AUDIO,
-            url = "https://example.com/audio/compose-events",
+            url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -463,7 +463,7 @@ val RequestItems=listOf(
             title = "إنشاء نماذج تفاعلية",
             description = "مقالة حول إنشاء واجهات تحتوي على نماذج تفاعلية مع Compose.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/interactive-forms",
+            url = "الباذنجان غني بالفيتامينات والمعادن الأساسية التي تدعم صحة العظام والجهاز العصبي. كما أنه منخفض السعرات وغني بالألياف، مما يجعله مثاليًا للحمية الغذائية.",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -472,7 +472,7 @@ val RequestItems=listOf(
             title = "تعلم الرسوم المتحركة الأساسية",
             description = "فيديو يشرح أساسيات الرسوم المتحركة في Compose.",
             type = MediaType.VIDEO,
-            url = "https://example.com/videos/basic-animations",
+            url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -481,7 +481,7 @@ val RequestItems=listOf(
             title = "تطبيقات صوتية متقدمة",
             description = "سلسلة صوتية تشرح التعامل مع الصوتيات في التطبيقات.",
             type = MediaType.AUDIO,
-            url = "https://example.com/audio/advanced-audio",
+            url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -490,7 +490,7 @@ val RequestItems=listOf(
             title = "إدارة التنقل بين الشاشات",
             description = "مقالة حول أفضل الممارسات للتنقل بين الشاشات في Compose.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/navigation-best-practices",
+            url = "الباذنجان يساهم في تحسين صحة الجهاز الهضمي وتقليل مشاكل الانتفاخ والإمساك. إدراجه بانتظام في النظام الغذائي يعزز من الشعور بالشبع ويقلل الرغبة في تناول الوجبات غير الصحية.",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -499,7 +499,7 @@ val RequestItems=listOf(
             title = "استخدام مكتبات Compose الخارجية",
             description = "فيديو يشرح كيفية دمج مكتبات طرف ثالث بسهولة.",
             type = MediaType.VIDEO,
-            url = "https://example.com/videos/compose-libraries",
+            url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -508,7 +508,7 @@ val RequestItems=listOf(
             title = "تدفق البيانات مع Flow",
             description = "درس صوتي يوضح كيفية استخدام Kotlin Flow لإدارة البيانات.",
             type = MediaType.AUDIO,
-            url = "https://example.com/audio/flow-data",
+            url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -517,7 +517,7 @@ val RequestItems=listOf(
             title = "التخصيص المتقدم للواجهة",
             description = "مقالة تشرح كيفية تخصيص الواجهة بشكل احترافي.",
             type = MediaType.ARTICLES,
-            url = "https://example.com/articles/advanced-ui",
+            url = "الباذنجان مفيد للبشرة والشعر لأنه غني بمضادات الأكسدة التي تحمي من التجاعيد وتقلل من تلف الشعر. إدراجه بانتظام في النظام الغذائي يحسن الصحة العامة ويقوي المناعة.",
             thumbnailUrl = null
         ),
         MediaRequest(
@@ -526,7 +526,7 @@ val RequestItems=listOf(
             title = "تحريك عناصر الواجهة",
             description = "فيديو يوضح كيفية تحريك عناصر واجهة المستخدم بسهولة.",
             type = MediaType.VIDEO,
-            url = "https://example.com/videos/ui-animation",
+            url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = R.drawable.jarir
         ),
         MediaRequest(
@@ -535,11 +535,10 @@ val RequestItems=listOf(
             title = "إدارة الحالة المتقدمة",
             description = "سلسلة صوتية حول تقنيات متقدمة لإدارة الحالة في Compose.",
             type = MediaType.AUDIO,
-            url = "https://example.com/audio/advanced-state",
+            url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = null
         )
     )
-
 
 
 }

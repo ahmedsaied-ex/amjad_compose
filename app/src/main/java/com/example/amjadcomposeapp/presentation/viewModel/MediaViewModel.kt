@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.amjadcomposeapp.domain.models.MediaRequest
 import com.example.amjadcomposeapp.domain.models.MediaType
+import com.example.amjadcomposeapp.domain.models.RequestItem
 import com.example.amjadcomposeapp.domain.use_case.GetMediaUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,6 +30,8 @@ class MediaViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(MediaUiState())
     val uiState: StateFlow<MediaUiState> = _uiState.asStateFlow()
+    private val _selectedRequest = MutableStateFlow<MediaRequest?>(null)
+    val selectedRequest: StateFlow<MediaRequest?> = _selectedRequest
 
     init {
         loadMedia()
@@ -63,5 +66,8 @@ class MediaViewModel @Inject constructor(
         _uiState.update {
             it.copy(selectedFilter = filter, filteredMedia = filtered)
         }
+    }
+    fun selectRequest(item: MediaRequest) {
+        _selectedRequest.value = item
     }
 }

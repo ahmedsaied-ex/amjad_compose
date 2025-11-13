@@ -21,6 +21,7 @@ sealed class AppRoute {
 
     // Library
     @Serializable object Library : AppRoute()
+    @Serializable object LibraryContent : AppRoute()
     @Serializable object Calendar : AppRoute()
     @Serializable object Attachment : AppRoute()
 }

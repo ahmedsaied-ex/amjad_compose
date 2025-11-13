@@ -79,6 +79,7 @@
     <color name="pdf_size_color">#8E8FA2</color>
     <color name="text_field_background_color">#F4F4F6</color>
     <color name="attachment_button_color">#178D32</color>
+    <color name="slider_row_background">#878787</color>
 
 
 

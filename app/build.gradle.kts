@@ -84,4 +84,9 @@ dependencies {
     // ✅ Desugaring library
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
     implementation("com.google.accompanist:accompanist-permissions:0.32.0")
+
+    //media
+
+    implementation("androidx.media3:media3-exoplayer:1.4.1")
+    implementation("androidx.media3:media3-ui:1.4.1")
 }

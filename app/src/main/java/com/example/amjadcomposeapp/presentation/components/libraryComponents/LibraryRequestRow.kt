@@ -2,6 +2,7 @@ package com.example.amjadcomposeapp.presentation.components.libraryComponents
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,18 +27,26 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.MediaRequest
 import com.example.amjadcomposeapp.domain.models.MediaType
+import com.example.amjadcomposeapp.presentation.navigation.AppRoute
+import com.example.amjadcomposeapp.presentation.viewModel.MediaViewModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 
 
 @Composable
-fun LibraryRequestRow(item: MediaRequest) {
+fun LibraryRequestRow(item: MediaRequest, navController: NavController, viewModel: MediaViewModel = viewModel()) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp), // optional spacing between rows
+            .padding(vertical = 4.dp)
+            .clickable{
+                viewModel.selectRequest(item)
+                navController.navigate(AppRoute.LibraryContent::class.qualifiedName!!)
+            }, // optional spacing between rows
         colors = CardDefaults.cardColors(Color.White),
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
