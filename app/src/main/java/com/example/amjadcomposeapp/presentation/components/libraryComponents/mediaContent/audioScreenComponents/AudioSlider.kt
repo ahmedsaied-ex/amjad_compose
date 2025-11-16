@@ -10,17 +10,17 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun AudioSlider(currentPosition: Long, duration: Long, onSeek: (Float) -> Unit,modifier: Modifier) {
+fun AudioSlider(
+    currentPosition: Long, duration: Long, onSeek: (Float) -> Unit, modifier: Modifier
+) {
     Slider(
         value = if (duration > 0) currentPosition / duration.toFloat() else 0f,
         onValueChange = onSeek,
-        modifier = modifier
-            .height(3.dp),
+        modifier = modifier.height(1.dp),
         colors = SliderDefaults.colors(
             thumbColor = Color.White,
             activeTrackColor = Color.White,
             inactiveTrackColor = Color.White.copy(alpha = 0.1f)
-        ),
-
+            ),
         )
 }

@@ -20,7 +20,8 @@ data class MediaUiState(
     val allMedia: List<MediaRequest> = emptyList(),
     val filteredMedia: List<MediaRequest> = emptyList(),
     val selectedFilter: MediaFilter = MediaFilter.ARTICLES,
-    val isLoading: Boolean = true
+    val isLoading: Boolean = true,
+    val errorMessage: String? = null
 )
 
 @HiltViewModel
@@ -39,17 +40,28 @@ class MediaViewModel @Inject constructor(
 
     private fun loadMedia() {
         viewModelScope.launch {
-            _uiState.update { it.copy(isLoading = true) }
+            _uiState.update { it.copy(isLoading = true, errorMessage = null) }
 
-            val mediaList = getMediaUseCase.invoke()
-            val initList = mediaList.filter { it.type == MediaType.ARTICLES }
+            try {
+                val mediaList = getMediaUseCase.invoke()
+                val initList = mediaList.filter { it.type == MediaType.ARTICLES }
 
-            _uiState.update {
-                it.copy(
-                    allMedia = mediaList,
-                    filteredMedia = initList,
-                    isLoading = false
-                )
+                _uiState.update {
+                    it.copy(
+                        allMedia = mediaList,
+                        filteredMedia = initList,
+                        isLoading = false
+                    )
+                }
+
+            } catch (e: Exception) {
+                e.printStackTrace() // optional: log the error
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        errorMessage = "Failed to load media: ${e.localizedMessage}"
+                    )
+                }
             }
         }
     }

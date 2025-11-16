@@ -15,6 +15,14 @@ import com.example.amjadcomposeapp.domain.models.OffersCategoryModel
 import com.example.amjadcomposeapp.domain.models.RequestItem
 import com.example.amjadcomposeapp.domain.models.RequestStatus
 import com.example.amjadcomposeapp.domain.models.SurveysTabsModel
+import com.example.amjadcomposeapp.ui.theme.HrRequestAttendance
+import com.example.amjadcomposeapp.ui.theme.HrRequestCredits
+import com.example.amjadcomposeapp.ui.theme.HrRequestDocuments
+import com.example.amjadcomposeapp.ui.theme.HrRequestHearing
+import com.example.amjadcomposeapp.ui.theme.HrRequestPermission
+import com.example.amjadcomposeapp.ui.theme.HrRequestRest
+import com.example.amjadcomposeapp.ui.theme.HrRequestVows
+import com.example.amjadcomposeapp.ui.theme.HrRequestWorkFromHome
 
 object DummyData {
     val bannerList = listOf(
@@ -106,38 +114,41 @@ object DummyData {
     val HrRequestList = listOf(
 
         HrRequestModel(
-            color = R.color.hr_request_attendance,
+            color = HrRequestAttendance,
             imgUrl = R.drawable.ic_we_hear_you,
             name = "سجل حضوري"
         ),
         HrRequestModel(
-            color = R.color.hr_request_credits,
+            color = HrRequestCredits,
             imgUrl = R.drawable.ic_we_hear_you,
             name = "اعتماداتي"
         ),
         HrRequestModel(
-            color = R.color.hr_request_rest, imgUrl = R.drawable.ic_we_hear_you, name = "اجازاتي"
+            color = HrRequestRest,
+            imgUrl = R.drawable.ic_we_hear_you, name = "اجازاتي"
         ),
         HrRequestModel(
-            color = R.color.hr_request_work_from_home,
+            color = HrRequestWorkFromHome,
             imgUrl = R.drawable.ic_we_hear_you,
             name = "عمل عن بعد"
         ),
         HrRequestModel(
-            color = R.color.hr_request_documents,
+            color = HrRequestDocuments,
             imgUrl = R.drawable.ic_we_hear_you,
             name = "مستنداتي"
         ),
         HrRequestModel(
-            color = R.color.hr_request_vows, imgUrl = R.drawable.ic_we_hear_you, name = "عهداتي"
+            color = HrRequestVows,
+            imgUrl = R.drawable.ic_we_hear_you, name = "عهداتي"
         ),
         HrRequestModel(
-            color = R.color.hr_request_permission,
+            color = HrRequestPermission,
             imgUrl = R.drawable.ic_we_hear_you,
             name = "اذاناتي"
         ),
         HrRequestModel(
-            color = R.color.hr_request_hearing, imgUrl = R.drawable.ic_we_hear_you, name = "نسمعك"
+            color = HrRequestHearing,
+            imgUrl = R.drawable.ic_we_hear_you, name = "نسمعك"
         ),
 
         )

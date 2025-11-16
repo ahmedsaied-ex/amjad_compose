@@ -75,9 +75,9 @@ fun PersonalPoints(navController: NavController) {
         Text(
             "1000", style = TextStyle(
                 fontFamily = Alexandria,
-                color = colorResource(id = R.color.main_color_yankies),
+                color = MainColorYankies),
                 fontWeight = FontWeight.SemiBold
-            )
+
         )
     }
 

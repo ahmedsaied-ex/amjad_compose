@@ -9,6 +9,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 fun DetailsName(){

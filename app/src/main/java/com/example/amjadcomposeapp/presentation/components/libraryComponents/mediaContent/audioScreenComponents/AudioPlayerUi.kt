@@ -25,13 +25,13 @@ import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
-
 @Composable
 fun AudioPlayerUI(
     title: String,
     isPlaying: Boolean,
     currentPosition: Long,
     duration: Long,
+    errorMessage: String? = null,
     onPlayPause: () -> Unit,
     onSeek: (Float) -> Unit
 ) {
@@ -42,10 +42,10 @@ fun AudioPlayerUI(
         contentAlignment = Alignment.Center
     ) {
         Card(
-            Modifier
+            modifier = Modifier
                 .padding(horizontal = 50.dp)
                 .fillMaxWidth(),
-            colors = CardDefaults.cardColors(Color.White)
+            colors = CardDefaults.cardColors(containerColor = Color.White)
         ) {
             Column(
                 modifier = Modifier
@@ -54,16 +54,31 @@ fun AudioPlayerUI(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
+                // Title
                 Text(
                     text = title,
                     style = TextStyle(
                         color = MainColorYankies,
                         fontFamily = Alexandria,
                         fontWeight = FontWeight.Medium,
-                        fontSize = 14.sp
+                        fontSize = 16.sp
                     )
                 )
+
                 Spacer(modifier = Modifier.height(8.dp))
+
+                // Error message if exists
+                if (!errorMessage.isNullOrEmpty()) {
+                    Text(
+                        text = errorMessage,
+                        color = Color.Red,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                }
+
+                // Audio progress and controls
                 AudioProgressRow(
                     isPlaying = isPlaying,
                     currentPosition = currentPosition,

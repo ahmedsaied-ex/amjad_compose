@@ -100,7 +100,7 @@ fun HrRequestItem(request: HrRequestModel, navController: NavController) {
             modifier = Modifier
                 .size(40.dp)
                 .clip(RoundedCornerShape(8.dp)) // ✅ rounded corners for the image box
-                .background(color = colorResource(request.color))
+                .background(color = request.color)
                 .clickable {
                     navController.navigate(AppRoute.Requests::class.qualifiedName!!)
                 }

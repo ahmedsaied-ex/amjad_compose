@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.components.uploadscreen.TextAttachmentRow
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.AttachmentKindColor
 import com.example.amjadcomposeapp.ui.theme.CompanyColor
 import com.example.amjadcomposeapp.ui.theme.DateColor
 
@@ -49,14 +50,14 @@ fun UploadingAttachmentArea(modifier: Modifier) {
             title = stringResource(R.string.supported_files),
             value = stringResource(R.string.supported_types_kinds),
             titleColor = DateColor,
-            valueColor = R.color.attachment_kind_color
+            valueColor = AttachmentKindColor
         )
         Spacer(modifier = Modifier.height(10.dp))
         TextAttachmentRow(
             title = stringResource(R.string.limited_size),
             value = stringResource(R.string.size_of_attachment),
-            titleColor = R.color.date_color,
-            valueColor = R.color.attachment_kind_color
+            titleColor = DateColor,
+            valueColor = AttachmentKindColor
         )
 
 

@@ -23,6 +23,7 @@ fun AudioPlayer(audioUrl: String, title: String) {
     var lastPosition by rememberSaveable { mutableStateOf(0L) }
     var currentPosition by remember { mutableStateOf(0L) }
     var duration by remember { mutableStateOf(0L) }
+    var errorMessage by remember { mutableStateOf<String?>(null) }
 
     ObserveLifecycle(exoPlayer, lifecycleOwner, isPlaying) { lastPosition = it }
 
@@ -36,21 +37,33 @@ fun AudioPlayer(audioUrl: String, title: String) {
         isPlaying = isPlaying,
         currentPosition = currentPosition,
         duration = duration,
+        errorMessage = errorMessage, // Show error in UI if needed
         onPlayPause = {
-            if (exoPlayer.isPlaying) {
-                exoPlayer.pause()
-                isPlaying = false
-            } else {
-                exoPlayer.play()
-                isPlaying = true
+            try {
+                if (exoPlayer.isPlaying) {
+                    exoPlayer.pause()
+                    isPlaying = false
+                } else {
+                    exoPlayer.play()
+                    isPlaying = true
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                errorMessage = "Playback error: ${e.localizedMessage}"
             }
         },
         onSeek = { fraction ->
-            val seekPosition = (fraction * duration).toLong()
-            exoPlayer.seekTo(seekPosition)
+            try {
+                val seekPosition = (fraction * duration).toLong()
+                exoPlayer.seekTo(seekPosition)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                errorMessage = "Seek failed: ${e.localizedMessage}"
+            }
         }
     )
 }
+
 // Helper function to format milliseconds to mm:ss
 fun formatMillis(millis: Long): String {
     val totalSeconds = (millis / 1000).coerceAtLeast(0L) // avoid negative

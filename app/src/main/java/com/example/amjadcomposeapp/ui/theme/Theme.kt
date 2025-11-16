@@ -9,6 +9,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import com.example.amjadcomposeapp.R
 
@@ -48,12 +49,11 @@ fun AmjadComposeAppTheme(
 
 
 object AssessmentColorProvider {
-
-    fun getGradientColorsByIndex(index: Int): Pair<Int, Int> {
+    fun getGradientColorsByIndex(index: Int): Pair<Color, Color> {
         return when (index % 3) {
-            0 -> R.color.assessment_dark_purple to R.color.assessment_light_purple
-            1 -> R.color.assessment_dark_orange to R.color.assessment_light_orange
-            else -> R.color.assessment_dark_green to R.color.assessment_light_green
+            0 -> AssessmentDarkPurple to AssessmentLightPurple
+            1 -> AssessmentDarkOrange to AssessmentLightOrange
+            else -> AssessmentDarkGreen to AssessmentLightGreen
         }
     }
 }

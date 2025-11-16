@@ -74,7 +74,7 @@ fun AssessmentList(assessments: UiState<List<AssessmentCardModel>>,context: Cont
 }
 
 @Composable
-fun AssessmentCard(assessment: AssessmentCardModel, initialColor: Int, finalColor: Int) {
+fun AssessmentCard(assessment: AssessmentCardModel, initialColor: Color, finalColor: Color) {
     Card(
         modifier = Modifier
             .padding(end = 1.dp, start = 14.dp)
@@ -144,7 +144,7 @@ fun QuestionsRaw(assessmentName: String, count: Int, image: Int) {
 }
 
 @Composable
-fun AssessmentCardImage(initialColor: Int, finalColor: Int, img: Int, title: String) {
+fun AssessmentCardImage(initialColor: Color, finalColor: Color, img: Int, title: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -152,8 +152,8 @@ fun AssessmentCardImage(initialColor: Int, finalColor: Int, img: Int, title: Str
             .background(
                 brush = Brush.horizontalGradient(
                     colors = listOf(
-                        colorResource(initialColor), // Orange
-                        colorResource(finalColor), // Orange
+                        initialColor, // Orange
+                       finalColor, // Orange
                         // Amber
                     )
                 )
