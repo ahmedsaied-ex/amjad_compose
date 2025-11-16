@@ -15,7 +15,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 
-// -------------------- Horizontal Pager --------------------
 @Composable
 fun CalendarPager(
     days: List<LocalDate>,
@@ -45,6 +44,7 @@ fun CalendarPager(
                 scope.launch {
                     pagerState.animateScrollToPage(page)
                 }
-            })
+            }
+        )
     }
 }

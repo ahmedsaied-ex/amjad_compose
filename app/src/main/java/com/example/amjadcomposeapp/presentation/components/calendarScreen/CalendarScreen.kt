@@ -28,7 +28,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-// -------------------- Main Calendar Component --------------------
 @Composable
 fun CustomCalendar(navController: NavController) {
     val today = LocalDate.now()
@@ -40,6 +39,8 @@ fun CustomCalendar(navController: NavController) {
     val arabicLocale = Locale("ar")
     val dayFormatter = DateTimeFormatter.ofPattern("EEE", arabicLocale)
     val fullDateFormatter = DateTimeFormatter.ofPattern("EEEE، d MMMM yyyy", arabicLocale)
+    val yearAndMonth = DateTimeFormatter.ofPattern("MMMM yyyy", arabicLocale)
+
 
     Column(
         modifier = Modifier
@@ -52,6 +53,7 @@ fun CustomCalendar(navController: NavController) {
             selectedDate = selectedDate,
             onDateSelected = { selectedDate = it },
             dayFormatter = dayFormatter,
+            yearAndMonthFormater= yearAndMonth,
             onBackClick = { navController.popBackStack() },
         )
         Spacer(modifier = Modifier.height(32.dp))

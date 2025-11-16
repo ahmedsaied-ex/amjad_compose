@@ -38,8 +38,9 @@ fun AttendanceCalendarSection(
     onDateSelected: (LocalDate) -> Unit,
     dayFormatter: DateTimeFormatter,
     modifier: Modifier = Modifier,
-    onBackClick: (() -> Unit)? = null
-) {
+    yearAndMonthFormater: DateTimeFormatter,
+    onBackClick: (() -> Unit)? = null,
+    ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -75,7 +76,7 @@ fun AttendanceCalendarSection(
         ) {
             Row {
                 Text(
-                    "نوفمبر 2024", style = TextStyle(
+                    selectedDate.format(yearAndMonthFormater) , style = TextStyle(
                         fontSize = 16.sp,
                         color = colorResource(R.color.company_color),
                         fontFamily = Alexandria,
@@ -94,7 +95,7 @@ fun AttendanceCalendarSection(
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    "نوفمبر 2024", style = TextStyle(
+                    selectedDate.format(yearAndMonthFormater) , style = TextStyle(
                         fontSize = 14.sp,
                         color = colorResource(R.color.attendance_stats),
                         fontFamily = Alexandria,
@@ -103,9 +104,10 @@ fun AttendanceCalendarSection(
                 )
             }
         }
+        Spacer(modifier = Modifier.height(16.dp))
 
         // Calendar pager
-        CalendarPager(
+        CalendarLazyRow(
             days = days,
             selectedDate = selectedDate,
             onDateSelected = onDateSelected,

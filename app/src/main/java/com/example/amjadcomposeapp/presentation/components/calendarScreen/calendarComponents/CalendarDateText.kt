@@ -18,8 +18,6 @@ import java.time.format.DateTimeFormatter
 fun SelectedDateText(
     selectedDate: LocalDate,
     dateFormat: DateTimeFormatter,
-    modifier: Modifier = Modifier,
-
     ) {
     Text(
         text = selectedDate.format(dateFormat), style = TextStyle(
