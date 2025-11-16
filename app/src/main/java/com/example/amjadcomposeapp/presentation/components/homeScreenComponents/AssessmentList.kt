@@ -1,5 +1,6 @@
 package com.example.amjadcomposeapp.presentation.components.homeScreenComponents
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -32,25 +33,41 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.AssessmentCardModel
+import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.AssessmentColorProvider
+import com.google.android.material.loadingindicator.LoadingIndicator
 
 
 @Composable
-fun AssessmentList(assessments: List<AssessmentCardModel>) {
-    LazyRow(modifier = Modifier.padding(top = 40.dp)) {
-        itemsIndexed(assessments) { index, assessment ->
-            val (initialColor, finalColor) = AssessmentColorProvider.getGradientColorsByIndex(
-                index
-            )
+fun AssessmentList(assessments: UiState<List<AssessmentCardModel>>,context: Context) {
+   when(assessments){
+       is UiState.Loading -> {
+           Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+               LoadingIndicator(context)
+           }
+       }
+       is UiState.Success -> {
+           LazyRow(modifier = Modifier.padding(top = 40.dp)) {
+               itemsIndexed(assessments.data) { index, assessment ->
+                   val (initialColor, finalColor) = AssessmentColorProvider.getGradientColorsByIndex(
+                       index
+                   )
 
-            AssessmentCard(
-                assessment = assessment,
-                initialColor = initialColor,
-                finalColor = finalColor
-            )
-        }
-    }
+                   AssessmentCard(
+                       assessment = assessment,
+                       initialColor = initialColor,
+                       finalColor = finalColor
+                   )
+               }
+           }
+       }
+       is UiState.Error -> {
+           Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+               Text(text = assessments.message,)
+           }
+       }
+   }
 
 }
 

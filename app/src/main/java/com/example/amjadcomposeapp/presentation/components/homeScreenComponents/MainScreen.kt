@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -22,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -45,6 +47,9 @@ fun MainScreen(
     val mostUsedOffers by viewModel.mostUsedOffers.collectAsState()
     val bottomSheetItems by viewModel.bottomSheetItems.collectAsState()
 
+    val context = LocalContext.current
+
+
     var showBottomSheet by remember { mutableStateOf(false) }
 
     if (showBottomSheet) {
@@ -54,6 +59,7 @@ fun MainScreen(
         ) {
             ConsultantBottomSheetContent(
                 bottomSheetItems = bottomSheetItems,
+                context=context,
                 onClick = {
                     showBottomSheet = false
                 },
@@ -78,7 +84,7 @@ fun MainScreen(
             HrCard(navController)
         }
         item {
-            HRRequests(hrList = hrRequests, navController = navController)
+            HRRequests(hrList = hrRequests, navController = navController, context =context)
         }
         item {
             AmjadConsultantCard(onClick = { showBottomSheet = true })
@@ -92,26 +98,26 @@ fun MainScreen(
             PersonalityCardRow()
         }
         item {
-            AssessmentList(assessments = assessments)
+            AssessmentList(assessments = assessments, context=context)
         }
         item {
-            SurveysList(serves = surveys)
+            SurveysList(serves = surveys, context=context)
         }
         item {
-            NewsList(news = news)
+            NewsList(news = news, context=context)
         }
         item {
             WhereToPutYourMoney()
         }
         item {
-            OffersCategoryList(offersCategory = offersCategory)
+            OffersCategoryList(offersCategory = offersCategory, context=context)
         }
         item {
             MostWantedText()
         }
 
         item {
-            MostUsedOffersList(offers = mostUsedOffers)
+            MostUsedOffersList(offers = mostUsedOffers, context=context)
         }
         item {
             JobsPanner()

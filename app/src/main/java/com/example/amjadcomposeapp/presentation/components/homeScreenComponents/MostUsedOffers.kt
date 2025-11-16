@@ -1,5 +1,6 @@
 package com.example.amjadcomposeapp.presentation.components.homeScreenComponents
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,20 +32,47 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.MostUsedOfferModel
+import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.google.android.material.loadingindicator.LoadingIndicator
 
 
 @Composable
-fun MostUsedOffersList(offers: List<MostUsedOfferModel>){
-    LazyRow(modifier = Modifier.fillMaxWidth().padding(top = 22.dp)) {
-        items(offers){offer->
-            MostUsedOffersItem(offer)
+fun MostUsedOffersList(offers: UiState<List<MostUsedOfferModel>>, context: Context) {
+    when (offers) {
+        is UiState.Loading -> {
+            Box(modifier = Modifier.fillMaxWidth()) {
+                LoadingIndicator(context)
+            }
+
+        }
+
+        is UiState.Error -> {
+            Box(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    "there was an error", style = TextStyle(
+                        color = Color.Red.copy(alpha = .5f)
+                    )
+                )
+            }
+
+        }
+
+        is UiState.Success -> {
+            LazyRow(modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 22.dp)) {
+                items(offers.data) { offer ->
+                    MostUsedOffersItem(offer)
+                }
+            }
+
         }
     }
 }
 
 @Composable
-fun MostUsedOffersItem(offer:MostUsedOfferModel) {
+fun MostUsedOffersItem(offer: MostUsedOfferModel) {
     Card(
         modifier = Modifier
             .padding(end = 2.dp, bottom = 20.dp, start = 10.dp)
@@ -67,9 +95,11 @@ fun MostUsedOffersItem(offer:MostUsedOfferModel) {
                         .fillMaxWidth(),
                     contentScale = ContentScale.Crop
                 )
-                Column(modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()) {
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                ) {
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
                         offer.title, style = TextStyle(
@@ -81,19 +111,23 @@ fun MostUsedOffersItem(offer:MostUsedOfferModel) {
                             .padding(horizontal = 12.dp)
                     )
                     Spacer(modifier = Modifier.height(12.dp))
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 12.dp)) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 12.dp)
+                    ) {
                         Image(
                             painter = painterResource(R.drawable.ic_grocery),
                             contentDescription = "Offer Image",
                             modifier = Modifier.size(14.dp)
                         )
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("أونلاين", style = TextStyle(
-                            color = colorResource(R.color.shaded_assessment),
-                            fontSize = 12.sp,
-                        ))
+                        Text(
+                            "أونلاين", style = TextStyle(
+                                color = colorResource(R.color.shaded_assessment),
+                                fontSize = 12.sp,
+                            )
+                        )
 
                     }
                     Spacer(modifier = Modifier.heightIn(14.dp))
@@ -101,19 +135,31 @@ fun MostUsedOffersItem(offer:MostUsedOfferModel) {
 
 
             }
-            Row(modifier = Modifier.align(Alignment.CenterStart).padding(start = 12.dp), verticalAlignment = Alignment.Bottom
+            Row(
+                modifier = Modifier
+                    .align(Alignment.CenterStart)
+                    .padding(start = 12.dp),
+                verticalAlignment = Alignment.Bottom
             )
             {
-                Card(Modifier.size(50.dp), shape = RoundedCornerShape(30.dp), elevation = CardDefaults.cardElevation(2.dp)) {
-                    Image(painter = painterResource(offer.logoImg), contentDescription = "Offer Image",)
+                Card(
+                    Modifier.size(50.dp),
+                    shape = RoundedCornerShape(30.dp),
+                    elevation = CardDefaults.cardElevation(2.dp)
+                ) {
+                    Image(
+                        painter = painterResource(offer.logoImg),
+                        contentDescription = "Offer Image",
+                    )
                 }
-                Text(offer.name,style = TextStyle(
-                    color = colorResource(R.color.date_color),
-                    fontSize = 11.sp,
-                    fontFamily = Alexandria,
-                    fontWeight = FontWeight.Medium
+                Text(
+                    offer.name, style = TextStyle(
+                        color = colorResource(R.color.date_color),
+                        fontSize = 11.sp,
+                        fontFamily = Alexandria,
+                        fontWeight = FontWeight.Medium
 
-                ),
+                    ),
                     modifier = Modifier.padding(start = 5.dp, bottom = 7.dp)
                 )
             }

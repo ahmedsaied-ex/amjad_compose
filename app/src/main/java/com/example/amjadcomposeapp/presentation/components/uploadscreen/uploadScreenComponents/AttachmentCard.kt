@@ -2,6 +2,7 @@ package com.example.amjadcomposeapp.presentation.components.uploadscreen.uploadS
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,7 +30,7 @@ import com.example.amjadcomposeapp.ui.theme.Alexandria
 
 
 @Composable
-fun AttachmentCard(fileName: String, fileSize: String) {
+fun AttachmentCard(fileName: String, fileSize: String, onRemove: () -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
@@ -65,14 +66,13 @@ fun AttachmentCard(fileName: String, fileSize: String) {
                 )
                 Spacer(modifier = Modifier.height(5.dp))
                 Text(
-                    fileSize, style = TextStyle(
+                    fileSize,
+                    style = TextStyle(
                         color = colorResource(R.color.pdf_size_color),
                         fontFamily = Alexandria,
                         fontSize = 14.sp
                     ),
-
-
-                    )
+                )
             }
 
             Box(modifier = Modifier.weight(1f)) {
@@ -82,6 +82,9 @@ fun AttachmentCard(fileName: String, fileSize: String) {
                     modifier = Modifier
                         .size(20.dp)
                         .align(Alignment.CenterEnd)
+                        .clickable {
+                            onRemove()
+                        }
 
                 )
             }

@@ -26,11 +26,10 @@ class RequestsViewModel @Inject constructor(
     private val getRequestsUseCase: GetRequestsUseCase
 ) : ViewModel() {
 
-    // الـ state الحالي
+
     private val _uiState = MutableStateFlow(RequestsUiState())
     val uiState: StateFlow<RequestsUiState> = _uiState.asStateFlow()
 
-    // Shared state للـ RequestDetails (Type-Safe Navigation)
     private val _selectedRequest = MutableStateFlow<RequestItem?>(null)
     val selectedRequest: StateFlow<RequestItem?> = _selectedRequest
 

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
@@ -20,42 +21,71 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.amjadcomposeapp.domain.models.BannerImageModel
+import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
 import kotlin.math.absoluteValue
 
 @Composable
-fun BannerPager(banners: List<BannerImageModel>, navController: NavController) {
-    val pagerState = rememberPagerState(
-        initialPage = banners.size / 2, pageCount = { banners.size })
+fun BannerPager(banners: UiState<List<BannerImageModel>>, navController: NavController) {
+    when (banners) {
+        is UiState.Loading -> {
+            // Placeholder أثناء التحميل
+            androidx.compose.foundation.layout.Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(170.dp)
+            )
+        }
+        is UiState.Error -> {
+            // رسالة الخطأ
+            androidx.compose.material3.Text(
+                text = banners.message,
+                color = androidx.compose.ui.graphics.Color.Red,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(170.dp)
+                    .padding(16.dp)
+            )
+        }
+        is UiState.Success -> {
+            val list = banners.data
+            if (list.isEmpty()) return
 
-    HorizontalPager(
-        state = pagerState,
-        pageSize = PageSize.Fill,
-        contentPadding = PaddingValues(horizontal = 50.dp),
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(170.dp)
-            .clipToBounds()
-    ) { page ->
-
-        val pageOffset =
-            (pagerState.currentPage - page + pagerState.currentPageOffsetFraction).absoluteValue.coerceIn(
-                0f, 1.2f
+            val pagerState = rememberPagerState(
+                initialPage = list.size / 2,
+                pageCount = { list.size }
             )
 
-        val scale = lerp(0.85f, 1.1f, 1f - pageOffset)
+            HorizontalPager(
+                state = pagerState,
+                pageSize = PageSize.Fill,
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 50.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(170.dp)
+                    .clipToBounds()
+            ) { page ->
 
-        BannerItem(
-            navController = navController,
+                val pageOffset =
+                    (pagerState.currentPage - page + pagerState.currentPageOffsetFraction).absoluteValue.coerceIn(
+                        0f, 1.2f
+                    )
 
-            banner = banners[page],
-            modifier = Modifier
-                .width(320.dp)
-                .aspectRatio(320f / 170f)  // fixed ratio 320/170
-                .graphicsLayer {
-                    scaleX = scale
-                    scaleY = scale
-                })
+                val scale = lerp(0.85f, 1.1f, 1f - pageOffset)
+
+                BannerItem(
+                    navController = navController,
+                    banner = list[page],
+                    modifier = Modifier
+                        .width(320.dp)
+                        .aspectRatio(320f / 170f)
+                        .graphicsLayer {
+                            scaleX = scale
+                            scaleY = scale
+                        }
+                )
+            }
+        }
     }
 }
 

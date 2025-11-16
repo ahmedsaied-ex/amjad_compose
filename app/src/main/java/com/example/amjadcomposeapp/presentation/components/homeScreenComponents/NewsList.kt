@@ -1,6 +1,8 @@
 package com.example.amjadcomposeapp.presentation.components.homeScreenComponents
 
+import android.content.Context
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,14 +32,32 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.NewsModel
+import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.google.android.material.loadingindicator.LoadingIndicator
 
 
 @Composable
-fun NewsList(news: List<NewsModel>) {
-    LazyRow(modifier = Modifier.padding(top = 10.dp)) {
-        items(news) {news->
-            NewsCard(news = news)
+fun NewsList(news: UiState<List<NewsModel>>,context: Context) {
+    when (news) {
+        is UiState.Success -> {
+            LazyRow(modifier = Modifier.padding(top = 10.dp)) {
+                items(news.data) {news->
+                    NewsCard(news = news)
+                }
+            }
+        }
+        is UiState.Loading -> {
+            Box(modifier = Modifier.fillMaxWidth().height(140.dp)){
+                LoadingIndicator(context)
+            }
+        }
+        is UiState.Error -> {
+            Box(modifier = Modifier.fillMaxWidth().height(60.dp)){
+                Text("there was an error", style = TextStyle(
+                    color = Color.Red.copy(alpha =.5f )
+                ))
+            }
         }
     }
 }

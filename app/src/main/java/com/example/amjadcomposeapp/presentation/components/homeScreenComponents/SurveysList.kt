@@ -1,10 +1,14 @@
 package com.example.amjadcomposeapp.presentation.components.homeScreenComponents
 
+import android.content.Context
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -26,16 +30,34 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.SurveysTabsModel
+import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.google.android.material.loadingindicator.LoadingIndicator
 
 
 @Composable
-fun SurveysList(serves: List<SurveysTabsModel>) {
-    LazyRow(modifier = Modifier.padding(start = 16.dp, top = 40.dp)) {
-        items(serves) { serve ->
-            SurveysTabs(survey = serve)
+fun SurveysList(serves: UiState<List<SurveysTabsModel>>,context: Context) {
+    when (serves) {
+        is UiState.Error -> {
+            Box(modifier = Modifier.fillMaxWidth().height(60.dp)){
+                Text("there was an error", style = TextStyle(
+                    color = Color.Red.copy(alpha =.5f )
+                ))
+            }
         }
+        is UiState.Loading ->
+            Box(modifier = Modifier.fillMaxWidth().height(60.dp)){
+                LoadingIndicator(context)
+            }
 
+        is UiState.Success -> {
+            LazyRow(modifier = Modifier.padding(start = 16.dp, top = 40.dp)) {
+                items(serves.data) { serve ->
+                    SurveysTabs(survey = serve)
+                }
+
+            }
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 package com.example.amjadcomposeapp.presentation.components.homeScreenComponents
 
+import android.content.Context
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -34,12 +35,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.HrRequestModel
+import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.google.android.material.loadingindicator.LoadingIndicator
 
 
 @Composable
-fun HRRequests(hrList: List<HrRequestModel>,navController: NavController) {
+fun HRRequests(hrList: UiState<List<HrRequestModel>>, navController: NavController,context: Context) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -51,22 +54,37 @@ fun HRRequests(hrList: List<HrRequestModel>,navController: NavController) {
         border = BorderStroke(
             width = 1.dp, brush = SolidColor(colorResource(id = R.color.card_stroke))
         ),
-        ) {
-            LazyRow(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
+    ) {
+        when (hrList) {
+            is UiState.Success -> {
+                LazyRow(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
 
-            ) {
-                items(hrList) { request ->
-                    HrRequestItem(request = request, navController =  navController)
+                ) {
+                    items(hrList.data) { request ->
+                        HrRequestItem(request = request, navController =  navController)
+                    }
                 }
             }
+            is UiState.Loading -> { Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                LoadingIndicator(context)
+            }
+            }
+            is UiState.Error -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                    Text(text = hrList.message, color = Color.Red)
+                }
+            }
+
         }
+
+    }
 
 }
 
 @Composable
-fun HrRequestItem(request: HrRequestModel,navController: NavController) {
+fun HrRequestItem(request: HrRequestModel, navController: NavController) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -80,7 +98,7 @@ fun HrRequestItem(request: HrRequestModel,navController: NavController) {
                 .size(40.dp)
                 .clip(RoundedCornerShape(8.dp)) // ✅ rounded corners for the image box
                 .background(color = colorResource(request.color))
-                .clickable{
+                .clickable {
                     navController.navigate(AppRoute.Requests::class.qualifiedName!!)
                 }
         ) {

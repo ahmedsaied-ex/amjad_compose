@@ -4,55 +4,49 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.amjadcomposeapp.domain.models.*
 import com.example.amjadcomposeapp.domain.use_case.MainScreenUseCases
+import com.example.amjadcomposeapp.helpers.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-
 @HiltViewModel
 class MainScreenViewModel @Inject constructor(
     private val useCases: MainScreenUseCases
 ) : ViewModel() {
 
-    private val _banners = MutableStateFlow<List<BannerImageModel>>(emptyList())
-    val banners: StateFlow<List<BannerImageModel>> = _banners
-
-    private val _hrRequests = MutableStateFlow<List<HrRequestModel>>(emptyList())
-    val hrRequests: StateFlow<List<HrRequestModel>> = _hrRequests
-
-    private val _assessments = MutableStateFlow<List<AssessmentCardModel>>(emptyList())
-    val assessments: StateFlow<List<AssessmentCardModel>> = _assessments
-
-    private val _surveys = MutableStateFlow<List<SurveysTabsModel>>(emptyList())
-    val surveys: StateFlow<List<SurveysTabsModel>> = _surveys
-
-    private val _news = MutableStateFlow<List<NewsModel>>(emptyList())
-    val news: StateFlow<List<NewsModel>> = _news
-
-    private val _offersCategory = MutableStateFlow<List<OffersCategoryModel>>(emptyList())
-    val offersCategory: StateFlow<List<OffersCategoryModel>> = _offersCategory
-
-    private val _mostUsedOffers = MutableStateFlow<List<MostUsedOfferModel>>(emptyList())
-    val mostUsedOffers: StateFlow<List<MostUsedOfferModel>> = _mostUsedOffers
-
-    private val _bottomSheetItems = MutableStateFlow<List<BottomSheetItem>>(emptyList())
-    val bottomSheetItems: StateFlow<List<BottomSheetItem>> = _bottomSheetItems
+    val banners = MutableStateFlow<UiState<List<BannerImageModel>>>(UiState.Loading)
+    val hrRequests = MutableStateFlow<UiState<List<HrRequestModel>>>(UiState.Loading)
+    val assessments = MutableStateFlow<UiState<List<AssessmentCardModel>>>(UiState.Loading)
+    val surveys = MutableStateFlow<UiState<List<SurveysTabsModel>>>(UiState.Loading)
+    val news = MutableStateFlow<UiState<List<NewsModel>>>(UiState.Loading)
+    val offersCategory = MutableStateFlow<UiState<List<OffersCategoryModel>>>(UiState.Loading)
+    val mostUsedOffers = MutableStateFlow<UiState<List<MostUsedOfferModel>>>(UiState.Loading)
+    val bottomSheetItems = MutableStateFlow<UiState<List<BottomSheetItem>>>(UiState.Loading)
 
     init {
         loadMainScreenData()
     }
 
-    private fun loadMainScreenData() {
+    private fun <T> loadData(stateFlow: MutableStateFlow<UiState<T>>, block: suspend () -> T) {
         viewModelScope.launch {
-            _banners.value = useCases.getBanners()
-            _hrRequests.value = useCases.getHrRequests()
-            _assessments.value = useCases.getAssessments()
-            _surveys.value = useCases.getSurveys()
-            _news.value = useCases.getNews()
-            _offersCategory.value = useCases.getOffersCategory()
-            _mostUsedOffers.value = useCases.getMostUsedOffers()
-            _bottomSheetItems.value = useCases.getBottomSheetItems()
+            stateFlow.value = UiState.Loading
+            try {
+                stateFlow.value = UiState.Success(block())
+            } catch (e: Exception) {
+                stateFlow.value = UiState.Error(e.message ?: "Unknown error")
+            }
         }
+    }
+
+    private fun loadMainScreenData() {
+        loadData(banners) { useCases.getBanners() }
+        loadData(hrRequests) { useCases.getHrRequests() }
+        loadData(assessments) { useCases.getAssessments() }
+        loadData(surveys) { useCases.getSurveys() }
+        loadData(news) { useCases.getNews() }
+        loadData(offersCategory) { useCases.getOffersCategory() }
+        loadData(mostUsedOffers) { useCases.getMostUsedOffers() }
+        loadData(bottomSheetItems) { useCases.getBottomSheetItems() }
     }
 }

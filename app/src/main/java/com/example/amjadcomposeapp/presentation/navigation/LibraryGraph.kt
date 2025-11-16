@@ -35,7 +35,7 @@ fun NavGraphBuilder.libraryGraph(navController: NavHostController) {
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text("No Request Selected")
+                Text("No Media Selected")
             }
         }
     }

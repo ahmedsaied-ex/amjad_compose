@@ -1,10 +1,13 @@
 package com.example.amjadcomposeapp.presentation.components.homeScreenComponents
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -27,11 +31,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.BottomSheetItem
+import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.google.android.material.loadingindicator.LoadingIndicator
+import kotlinx.serialization.Contextual
 
 
 @Composable
-fun ConsultantBottomSheetContent(bottomSheetItems: List<BottomSheetItem>,onClick: () -> Unit) {
+fun ConsultantBottomSheetContent(bottomSheetItems: UiState<List<BottomSheetItem>>,context: Context,onClick: () -> Unit ) {
     Column {
         TitleBottomSheet(onClick)
         HorizontalDivider(
@@ -39,20 +46,33 @@ fun ConsultantBottomSheetContent(bottomSheetItems: List<BottomSheetItem>,onClick
             thickness = 1.dp,
             modifier = Modifier.fillMaxWidth()
         )
-        LazyColumn {
-            itemsIndexed(bottomSheetItems) { index, item ->
-                BottomSheetRow(item)
+        when(bottomSheetItems){
+            is UiState.Error -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                    Text(text = "there is an error", style = TextStyle(color = Color.Red.copy(alpha = .5f)))
+                }
+            }
+            is UiState.Loading ->  Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                LoadingIndicator(context)
+            }
+            is UiState.Success -> {
+                LazyColumn {
+                    itemsIndexed(bottomSheetItems.data) { index, item ->
+                        BottomSheetRow(item)
 
-                // Draw line below item unless it's the last one
-                if (index < bottomSheetItems.lastIndex) {
-                    HorizontalDivider(
-                        color = Color(0xFFE0E0E0),
-                        thickness = 1.dp,
-                        modifier = Modifier.fillMaxWidth()
-                    )
+                        // Draw line below item unless it's the last one
+                        if (index < bottomSheetItems.data.lastIndex) {
+                            HorizontalDivider(
+                                color = Color(0xFFE0E0E0),
+                                thickness = 1.dp,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
+                    }
                 }
             }
         }
+
     }
 
 }

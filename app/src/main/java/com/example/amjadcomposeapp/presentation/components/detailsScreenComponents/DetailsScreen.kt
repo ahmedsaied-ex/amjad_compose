@@ -41,7 +41,6 @@ fun DetailsScreen(
         Column(
             modifier = Modifier.
                 background(color = colorResource(R.color.details_background))
-                .windowInsetsPadding(WindowInsets.statusBars)
                 .padding(horizontal = 16.dp)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
