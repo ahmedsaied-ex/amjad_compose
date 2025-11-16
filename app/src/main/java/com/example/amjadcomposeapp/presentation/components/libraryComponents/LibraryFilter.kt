@@ -20,6 +20,9 @@ import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.viewModel.MediaFilter
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CompanyColor
+import com.example.amjadcomposeapp.ui.theme.FilterBackground
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 private fun LibraryFilterChipItem(
@@ -27,7 +30,7 @@ private fun LibraryFilterChipItem(
 ) {
     val bgColor = if (isSelected) Color.White else Color.Transparent
     val textColor =
-        if (isSelected) colorResource(R.color.company_color) else colorResource(R.color.main_color_yankies)
+        if (isSelected) CompanyColor else MainColorYankies
 
     Box(
         modifier = Modifier
@@ -54,7 +57,7 @@ fun LibraryFilterBar(
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(20.dp)) // هنا نعمل الحواف مستديرة
-            .background(colorResource(R.color.filter_background))
+            .background(FilterBackground)
             .padding(horizontal = 8.dp, vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {

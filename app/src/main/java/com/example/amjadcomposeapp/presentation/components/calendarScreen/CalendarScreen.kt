@@ -24,6 +24,7 @@ import com.example.amjadcomposeapp.presentation.components.calendarScreen.calend
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.RedCalendarRedText
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.SelectedDateText
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.WorkingHours
+import com.example.amjadcomposeapp.ui.theme.DateColor
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -63,7 +64,7 @@ fun CustomCalendar(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
         DashedBorderBox(
             modifier = Modifier,
-            color = colorResource(R.color.date_color),
+            color = DateColor,
             strokeWidth = 1.dp,
             dashLength = 4.dp,
             cornerRadius = 12.dp

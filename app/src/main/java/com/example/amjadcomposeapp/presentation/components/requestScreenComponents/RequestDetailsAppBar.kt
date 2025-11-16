@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 fun CostumeAppBar(navController: NavController, icon:Int, text:Int) {
@@ -32,7 +33,7 @@ fun CostumeAppBar(navController: NavController, icon:Int, text:Int) {
             stringResource(text), style = TextStyle(
                 fontSize = 16.sp,
                 fontFamily = Alexandria,
-                color = colorResource(R.color.main_color_yankies)
+                color = MainColorYankies
             )
         )
         Spacer(modifier = Modifier.weight(1f))

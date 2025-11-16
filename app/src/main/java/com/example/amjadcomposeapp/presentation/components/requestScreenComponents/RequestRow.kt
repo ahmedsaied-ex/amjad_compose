@@ -35,6 +35,8 @@ import com.example.amjadcomposeapp.domain.models.RequestItem
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
 import com.example.amjadcomposeapp.presentation.viewModel.RequestsViewModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 import java.net.URLEncoder
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -85,7 +87,7 @@ fun RequestRow(
                 Spacer(modifier = Modifier.width(14.dp))
                 Text(
                     item.name, style = TextStyle(
-                        color = colorResource(R.color.main_color_yankies),
+                        color = MainColorYankies,
                         fontSize = 14.sp,
                         fontFamily = Alexandria,
                         fontWeight = FontWeight.Medium
@@ -98,7 +100,7 @@ fun RequestRow(
                 Text(
                     text = stringResource(R.string.sent_at), style = TextStyle(
                         fontSize = 11.sp,
-                        color = colorResource(R.color.date_color),
+                        color = DateColor,
                         fontFamily = Alexandria
                     )
                 )
@@ -106,7 +108,7 @@ fun RequestRow(
                 Text(
                     text =item.description, style = TextStyle(
                         fontSize = 11.sp,
-                        color = colorResource(R.color.main_color_yankies),
+                        color = MainColorYankies,
                         fontFamily = Alexandria
                     )
                 )

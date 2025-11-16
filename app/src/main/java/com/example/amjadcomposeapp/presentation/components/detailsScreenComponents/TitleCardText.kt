@@ -12,12 +12,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 fun TitleCardText(title:String) {
     Text(
         title, style = TextStyle(
-            color = colorResource(R.color.main_color_yankies),
+            color = MainColorYankies,
             fontWeight = FontWeight.Medium,
             fontFamily = Alexandria,
             fontSize = 14.sp

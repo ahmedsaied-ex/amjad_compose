@@ -44,6 +44,7 @@ import com.example.amjadcomposeapp.domain.models.RequestStatus
 import com.example.amjadcomposeapp.presentation.viewModel.FilterOption
 import com.example.amjadcomposeapp.presentation.viewModel.RequestsViewModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 fun RequestsScreen(
@@ -127,7 +128,7 @@ fun RequestsHeader(
             Text(
                 text = stringResource(R.string.requests_that_sended_to_you),
                 style = TextStyle(
-                    color = colorResource(R.color.main_color_yankies),
+                    color = MainColorYankies,
                     fontSize = 16.sp,
                     fontFamily = Alexandria
                 )
@@ -157,8 +158,8 @@ fun StatusPill(status: RequestStatus) {
     val ui = status.toMainBannerUI()
 
     Card(
-        colors = CardDefaults.cardColors(colorResource(ui.backgroundColor)),
-        border = BorderStroke(1.dp, SolidColor(colorResource(ui.borderColor))),
+        colors = CardDefaults.cardColors(ui.backgroundColor),
+        border = BorderStroke(1.dp, SolidColor(ui.borderColor)),
         modifier = Modifier
             .fillMaxWidth()
             .height(52.dp)
@@ -166,7 +167,7 @@ fun StatusPill(status: RequestStatus) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text(
                 text = stringResource(ui.text),
-                color = colorResource(ui.textColor),
+                color = ui.textColor,
                 fontFamily = Alexandria,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Medium,

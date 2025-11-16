@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.RequestStatus
+import com.example.amjadcomposeapp.ui.theme.TopColumRequestsBackground
 
 
 @Composable
@@ -29,7 +30,7 @@ fun TopRequestDetails(navController : NavController,name : String,status: Reques
                     brush = Brush.verticalGradient(
                         colors = listOf(
                             Color.White,
-                            colorResource(id = R.color.top_colum_requests_background)
+                            TopColumRequestsBackground
                         )
                     )
                 )

@@ -36,6 +36,8 @@ import com.example.amjadcomposeapp.domain.models.AssessmentCardModel
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.AssessmentColorProvider
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.ShadedAssessment
 import com.google.android.material.loadingindicator.LoadingIndicator
 
 
@@ -125,7 +127,7 @@ fun QuestionsRaw(assessmentName: String, count: Int, image: Int) {
         Spacer(modifier = Modifier.width(2.dp))
         Text(
             count.toString(), style = TextStyle(
-                color = colorResource(R.color.main_color_yankies),
+                color = MainColorYankies,
                 fontFamily = Alexandria,
                 fontSize = 14.sp
             )
@@ -134,7 +136,7 @@ fun QuestionsRaw(assessmentName: String, count: Int, image: Int) {
         Text(
             assessmentName, style = TextStyle(
                 fontSize = 11.sp,
-                color = colorResource(R.color.shaded_assessment),
+                color = ShadedAssessment,
                 fontFamily = Alexandria,
             )
         )
@@ -167,7 +169,7 @@ fun AssessmentCardImage(initialColor: Int, finalColor: Int, img: Int, title: Str
         Column(modifier = Modifier.align(Alignment.BottomStart)) {
             Text(
                 stringResource(R.string.measurement), style = TextStyle(
-                    color = colorResource(R.color.main_color_yankies),
+                    color = MainColorYankies,
                     fontFamily = Alexandria,
                     fontSize = 13.sp
                 )
@@ -175,7 +177,7 @@ fun AssessmentCardImage(initialColor: Int, finalColor: Int, img: Int, title: Str
             Spacer(modifier = Modifier.height(5.dp))
             Text(
                 text = title, style = TextStyle(
-                    color = colorResource(R.color.main_color_yankies),
+                    color = MainColorYankies,
                     fontFamily = Alexandria,
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold

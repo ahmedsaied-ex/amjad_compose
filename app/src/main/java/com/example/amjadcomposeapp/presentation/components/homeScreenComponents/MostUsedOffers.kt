@@ -34,6 +34,9 @@ import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.MostUsedOfferModel
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.ShadedAssessment
 import com.google.android.material.loadingindicator.LoadingIndicator
 
 
@@ -103,7 +106,7 @@ fun MostUsedOffersItem(offer: MostUsedOfferModel) {
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
                         offer.title, style = TextStyle(
-                            color = colorResource(R.color.main_color_yankies),
+                            color = MainColorYankies,
                             fontSize = 14.sp,
                             fontFamily = Alexandria
                         ), modifier = Modifier
@@ -124,7 +127,7 @@ fun MostUsedOffersItem(offer: MostUsedOfferModel) {
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
                             "أونلاين", style = TextStyle(
-                                color = colorResource(R.color.shaded_assessment),
+                                color = ShadedAssessment,
                                 fontSize = 12.sp,
                             )
                         )
@@ -154,7 +157,7 @@ fun MostUsedOffersItem(offer: MostUsedOfferModel) {
                 }
                 Text(
                     offer.name, style = TextStyle(
-                        color = colorResource(R.color.date_color),
+                        color = DateColor,
                         fontSize = 11.sp,
                         fontFamily = Alexandria,
                         fontWeight = FontWeight.Medium

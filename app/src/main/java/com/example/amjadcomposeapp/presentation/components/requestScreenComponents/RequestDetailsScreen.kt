@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.RequestItem
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 fun RequestDetailsScreen(navController: NavController,item: RequestItem) {
@@ -102,7 +103,7 @@ fun RequestDetailsCard(
         ) {
         Text(
             cardTitle, style = TextStyle(
-                color = colorResource(id = R.color.main_color_yankies),
+                color = MainColorYankies,
                 fontSize = 18.sp,
                 fontFamily = Alexandria,
             )

@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CalenderGreenText
+import com.example.amjadcomposeapp.ui.theme.CalenderGreenTextBackground
 
 
 @Composable
@@ -23,7 +25,7 @@ fun CalendarGreenText() {
     Box(
         Modifier
             .clip(RoundedCornerShape(20.dp))
-            .background(colorResource(R.color.calender_green_text_background))
+            .background(CalenderGreenTextBackground)
             .padding(vertical = 8.dp, horizontal = 12.dp), contentAlignment = Alignment.Center
 
     ) {
@@ -31,7 +33,7 @@ fun CalendarGreenText() {
             stringResource(R.string.request_permission), style = TextStyle(
                 fontFamily = Alexandria,
                 fontSize = 11.sp,
-                color = colorResource(R.color.calender_green_text)
+                color = CalenderGreenText
             )
         )
     }

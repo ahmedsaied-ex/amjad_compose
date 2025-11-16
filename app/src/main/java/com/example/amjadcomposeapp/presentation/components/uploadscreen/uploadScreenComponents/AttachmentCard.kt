@@ -27,6 +27,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DashedColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.PdfSizeColor
+import com.example.amjadcomposeapp.ui.theme.ReasonCardBackground
 
 
 @Composable
@@ -35,10 +39,10 @@ fun AttachmentCard(fileName: String, fileSize: String, onRemove: () -> Unit) {
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
         border = BorderStroke(
-            width = 2.dp, color = colorResource(R.color.dashed_color)
+            width = 2.dp, color = DashedColor
         ),
         colors = CardDefaults.cardColors(
-            containerColor = colorResource(R.color.reason_card_background)
+            containerColor =ReasonCardBackground
         )
     ) {
         Row(
@@ -57,7 +61,7 @@ fun AttachmentCard(fileName: String, fileSize: String, onRemove: () -> Unit) {
             Column(modifier = Modifier.weight(11f)) {
                 Text(
                     fileName, style = TextStyle(
-                        color = colorResource(R.color.main_color_yankies),
+                        color = MainColorYankies,
                         fontWeight = FontWeight.Medium,
                         fontFamily = Alexandria,
                         fontSize = 14.sp
@@ -68,7 +72,7 @@ fun AttachmentCard(fileName: String, fileSize: String, onRemove: () -> Unit) {
                 Text(
                     fileSize,
                     style = TextStyle(
-                        color = colorResource(R.color.pdf_size_color),
+                        color = PdfSizeColor,
                         fontFamily = Alexandria,
                         fontSize = 14.sp
                     ),

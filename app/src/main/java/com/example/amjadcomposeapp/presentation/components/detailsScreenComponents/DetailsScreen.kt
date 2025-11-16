@@ -28,6 +28,7 @@ import com.example.amjadcomposeapp.domain.models.DetailsRowData
 import com.example.amjadcomposeapp.presentation.components.PersonalityCard
 import com.example.amjadcomposeapp.presentation.components.homeScreenComponents.PointsAndOffers
 import com.example.amjadcomposeapp.presentation.viewModel.DetailsScreenViewModel
+import com.example.amjadcomposeapp.ui.theme.DetailsBackground
 
 @Composable
 
@@ -37,10 +38,9 @@ fun DetailsScreen(
 ) {
     val emojis by viewModel.emojis.collectAsState()
 
-    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
         Column(
             modifier = Modifier.
-                background(color = colorResource(R.color.details_background))
+                background(color = DetailsBackground)
                 .padding(horizontal = 16.dp)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -115,7 +115,7 @@ fun DetailsScreen(
             }
         }
     }
-}
+
 
 
 

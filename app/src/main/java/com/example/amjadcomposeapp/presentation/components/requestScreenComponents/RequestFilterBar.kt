@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -20,6 +21,9 @@ import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.viewModel.FilterOption
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CompanyColor
+import com.example.amjadcomposeapp.ui.theme.FilterBackground
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 
 @Composable
@@ -30,7 +34,7 @@ fun RequestFilterBar(
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(20.dp)) // هنا نعمل الحواف مستديرة
-            .background(colorResource(R.color.filter_background))
+            .background(FilterBackground)
             .padding(horizontal = 8.dp, vertical = 4.dp), // Padding داخلي للراحة
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -38,19 +42,19 @@ fun RequestFilterBar(
         RequestFilterChipItem(
             option = FilterOption.PENDING,
             isSelected = selected == FilterOption.PENDING,
-            text = "بانتظار موافقتك"
+            text = stringResource(R.string.waiting_request)
         ) { onSelectedChange(it) }
 
         RequestFilterChipItem(
             option = FilterOption.ACCEPTED,
             isSelected = selected == FilterOption.ACCEPTED,
-            text = "مقبولة"
+            text =  stringResource(R.string.accepted_request)
         ) { onSelectedChange(it) }
 
         RequestFilterChipItem(
             option = FilterOption.REJECTED,
             isSelected = selected == FilterOption.REJECTED,
-            text = "مرفوضة"
+            text =  stringResource(R.string.rejected_request)
         ) { onSelectedChange(it) }
 
     }
@@ -63,7 +67,7 @@ private fun RequestFilterChipItem(
 ) {
     val bgColor = if (isSelected) Color.White else Color.Transparent
     val textColor =
-        if (isSelected) colorResource(R.color.company_color) else colorResource(R.color.main_color_yankies)
+        if (isSelected) CompanyColor else MainColorYankies
 
     Box(
         modifier = Modifier

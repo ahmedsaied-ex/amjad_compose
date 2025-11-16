@@ -59,7 +59,7 @@ fun BannerPager(banners: UiState<List<BannerImageModel>>, navController: NavCont
             HorizontalPager(
                 state = pagerState,
                 pageSize = PageSize.Fill,
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 50.dp),
+                contentPadding =PaddingValues(horizontal = 50.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(170.dp)

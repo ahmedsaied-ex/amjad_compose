@@ -28,6 +28,9 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CompanyColor
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 
 @Composable
@@ -50,7 +53,7 @@ fun PersonalityDialog(onDismiss: () -> Unit, onConfirm: () -> Unit) {
                 Text(
                     text = stringResource(R.string.discover_your_true_self), style = TextStyle(
                         fontSize = 22.sp,
-                        color = colorResource(R.color.main_color_yankies),
+                        color = MainColorYankies,
                         fontWeight = FontWeight.SemiBold,
                         fontFamily = Alexandria
                     ), modifier = Modifier.padding(bottom = 16.dp)
@@ -58,7 +61,7 @@ fun PersonalityDialog(onDismiss: () -> Unit, onConfirm: () -> Unit) {
                 Text(
                     stringResource(R.string.personality_dialog_body), style = TextStyle(
                         fontSize = 14.sp,
-                        color = colorResource(R.color.date_color),
+                        color = DateColor,
                         fontFamily = Alexandria,
 
                         ), modifier = Modifier.padding(bottom = 40.dp), textAlign = TextAlign.Center
@@ -68,7 +71,7 @@ fun PersonalityDialog(onDismiss: () -> Unit, onConfirm: () -> Unit) {
                         onConfirm()
                     },
                     text = stringResource(R.string.discover_your_personality_now),
-                    backgroundColor = colorResource(R.color.company_color),
+                    backgroundColor = CompanyColor,
                     contentColor =Color.White
                 )
                 DialogButton(
@@ -76,8 +79,8 @@ fun PersonalityDialog(onDismiss: () -> Unit, onConfirm: () -> Unit) {
                         onDismiss()
                     },
                     text = stringResource(R.string.remind_me_later),
-                    backgroundColor = colorResource(R.color.company_color).copy(alpha = 0.1f),
-                    contentColor =colorResource(R.color.company_color)
+                    backgroundColor = CompanyColor.copy(alpha = 0.1f),
+                    contentColor =CompanyColor
                 )
                 Spacer(modifier = Modifier.height(18.dp))
 

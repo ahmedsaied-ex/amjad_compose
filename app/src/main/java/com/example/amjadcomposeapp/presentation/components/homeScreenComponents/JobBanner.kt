@@ -29,6 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 
 @Composable
@@ -60,7 +62,7 @@ fun JobsPanner() {
                     Text(
                         "وظائف متاحة",
                         style = TextStyle(
-                            color = colorResource(id = R.color.main_color_yankies),
+                            color = MainColorYankies,
                             fontFamily = Alexandria,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 18.sp
@@ -84,7 +86,7 @@ fun JobsPanner() {
                 Spacer(modifier = Modifier.height(10.dp))
                 Text(
                     stringResource(R.string.job_description), style = TextStyle(
-                        color = colorResource(R.color.date_color),
+                        color = DateColor,
                         fontFamily = Alexandria,
                         fontSize = 12.sp
                     )

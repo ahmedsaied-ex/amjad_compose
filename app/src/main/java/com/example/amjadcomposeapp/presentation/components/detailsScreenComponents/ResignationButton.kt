@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.ResignationButtonColor
 
 @Composable
 fun ResignationButton(onClick: () -> Unit) {
@@ -22,7 +23,7 @@ fun ResignationButton(onClick: () -> Unit) {
         onClick = onClick,
         shape = RoundedCornerShape(6.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = colorResource(R.color.resignation_button_color),
+            containerColor = ResignationButtonColor,
             contentColor = Color.White
         )
     ) {

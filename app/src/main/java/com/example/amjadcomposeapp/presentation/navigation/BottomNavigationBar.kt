@@ -40,6 +40,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.BottomNavItem
+import com.example.amjadcomposeapp.ui.theme.CompanyColor
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -53,7 +54,7 @@ fun BottomNavigationBar(navController: NavController) {
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    val companyColor = colorResource(id = R.color.company_color)
+    val companyColor = CompanyColor
 
 
     NavigationBar(

@@ -22,6 +22,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CalendarColorSelectedDayNumber
+import com.example.amjadcomposeapp.ui.theme.CalendarColorText
+import com.example.amjadcomposeapp.ui.theme.CalendarColorUnSelectedDayNumber
+import com.example.amjadcomposeapp.ui.theme.CalendarItemSelectedBackground
+import com.example.amjadcomposeapp.ui.theme.CalendarItemSelectedBorder
+import com.example.amjadcomposeapp.ui.theme.CalendarItemUnSelectedBackground
+import com.example.amjadcomposeapp.ui.theme.CalendarItemUnSelectedBorder
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -37,8 +44,8 @@ fun CalendarDayCard(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = if (isSelected) colorResource(R.color.calendar_item_selected_background)
-            else colorResource(R.color.calendar_item_ub_selected_background)
+            containerColor = if (isSelected) CalendarItemSelectedBackground
+            else CalendarItemUnSelectedBackground
         ),
         modifier = modifier
             .padding(3.dp)
@@ -46,8 +53,8 @@ fun CalendarDayCard(
             .clickable { onClick() },
         border = BorderStroke(
             width = 1.dp,
-            color = if (isSelected) colorResource(R.color.calendar_item_selected_border)
-            else colorResource(R.color.calendar_item_un_selected_border)
+            color = if (isSelected) CalendarItemSelectedBorder
+            else CalendarItemUnSelectedBorder
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = if (isSelected) 2.dp else 0.dp)
     ) {
@@ -59,7 +66,7 @@ fun CalendarDayCard(
             Text(
                 text = date.format(dayFormatter), style = TextStyle(
                     fontSize = 11.sp,
-                    color = colorResource(R.color.calendar_color_text),
+                    color = CalendarColorText,
                     fontWeight = FontWeight.Normal,
                     fontFamily = Alexandria
                 )
@@ -69,8 +76,8 @@ fun CalendarDayCard(
                 text = date.dayOfMonth.toString(), style = TextStyle(
                     fontSize = 16.sp,
                     fontWeight = if (isSelected) FontWeight.Medium else FontWeight.Normal,
-                    color = if (isSelected) colorResource(R.color.calendar_color_selected_day_number)
-                    else colorResource(R.color.calendar_color_un_selected_day_number),
+                    color = if (isSelected) CalendarColorSelectedDayNumber
+                    else CalendarColorUnSelectedDayNumber,
                     fontFamily = Alexandria
                 )
             )

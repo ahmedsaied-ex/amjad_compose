@@ -17,7 +17,7 @@ fun DetailsName(){
             fontWeight = FontWeight.SemiBold,
             fontFamily = Alexandria,
             fontSize = 22.sp,
-            color = colorResource(R.color.main_color_yankies)
+            color = MainColorYankies
         )
     )
 }

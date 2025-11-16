@@ -37,6 +37,9 @@ import com.example.amjadcomposeapp.presentation.components.uploadscreen.uploadSc
 import com.example.amjadcomposeapp.presentation.components.uploadscreen.uploadScreenComponents.UploadingAttachmentArea
 import com.example.amjadcomposeapp.presentation.viewModel.UploadViewModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.AttachmentButtonColor
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
@@ -91,7 +94,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
                     Text(
                         stringResource(R.string.required_Attachement_text),
                         style = TextStyle(
-                            color = colorResource(R.color.main_color_yankies),
+                            color = MainColorYankies,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 16.sp,
                             fontFamily = Alexandria
@@ -115,7 +118,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
                                     }
                                 }
                             },
-                        color = colorResource(R.color.date_color),
+                        color = DateColor,
                         strokeWidth = 1.dp,
                         dashLength = 4.dp,
                         cornerRadius = 12.dp
@@ -150,7 +153,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
             onClick = { /* TODO: upload file */ },
             shape = RoundedCornerShape(6.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = colorResource(R.color.attachment_button_color),
+                containerColor = AttachmentButtonColor,
                 contentColor = Color.White
             ),
             modifier = Modifier
@@ -160,7 +163,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
 
         ) {
             Text(
-                "إرفاق الوثيقة",
+                stringResource(R.string.attache_document),
                 style = TextStyle(
                     color = Color.White,
                     fontFamily = Alexandria,

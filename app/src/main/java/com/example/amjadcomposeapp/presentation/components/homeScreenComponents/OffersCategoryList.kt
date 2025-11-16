@@ -31,6 +31,8 @@ import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.OffersCategoryModel
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.OffersCategoryItem
 import com.google.android.material.loadingindicator.LoadingIndicator
 
 
@@ -74,7 +76,7 @@ fun OffersCategoryItem(offer :OffersCategoryModel ) {
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .clip(RoundedCornerShape(50.dp))
-                .background(color = colorResource(R.color.offers_category_item))
+                .background(color = OffersCategoryItem)
                 .padding(24.dp)
                 .size(32.dp)
                 .align(Alignment.CenterHorizontally) // rounded corners
@@ -85,7 +87,7 @@ fun OffersCategoryItem(offer :OffersCategoryModel ) {
                 fontFamily = Alexandria,
                 fontWeight = FontWeight.Medium,
                 fontSize = 14.sp,
-                color = colorResource(R.color.main_color_yankies)
+                color = MainColorYankies
             )
         )
     }

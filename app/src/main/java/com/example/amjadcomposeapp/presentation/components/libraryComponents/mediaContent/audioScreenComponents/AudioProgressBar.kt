@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.components.libraryComponents.mediaContent.formatMillis
+import com.example.amjadcomposeapp.ui.theme.SliderRowBackground
 
 
 @Composable
@@ -36,7 +37,7 @@ fun AudioProgressRow(
         Row(
             Modifier
                 .clip(RoundedCornerShape(7.dp))
-                .background(colorResource(R.color.slider_row_background))
+                .background(SliderRowBackground)
                 .fillMaxWidth()
                 .padding(vertical = 9.dp, horizontal = 15.dp),
             verticalAlignment = Alignment.CenterVertically

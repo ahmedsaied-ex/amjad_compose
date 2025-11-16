@@ -28,6 +28,9 @@ import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.BorderColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.White
 
 @Composable
 
@@ -41,10 +44,10 @@ fun HrCard(navController : NavController) {
                 navController.navigate(AppRoute.Library::class.qualifiedName!!)
             },
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFFFFFFF)
+            containerColor = White
         ),
         border = BorderStroke(
-            width = 1.dp, brush = SolidColor(colorResource(id = R.color.border_color))
+            width = 1.dp, brush = SolidColor(BorderColor)
         ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 3.dp
@@ -67,7 +70,7 @@ fun HrCard(navController : NavController) {
 
                     style = TextStyle(
                         fontFamily = Alexandria,
-                        color = colorResource(R.color.main_color_yankies),
+                        color = MainColorYankies,
                         fontWeight = FontWeight.Medium,
                         fontSize = 14.sp
                     )

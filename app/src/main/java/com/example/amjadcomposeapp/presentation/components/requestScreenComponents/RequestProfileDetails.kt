@@ -28,6 +28,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.DetailsRowProfileImageBackground
+import com.example.amjadcomposeapp.ui.theme.HrRequestVows
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 
 @Composable
@@ -38,9 +42,9 @@ fun RequestProfileDetails(name: String, ) {
             .fillMaxWidth()
             .height(70.dp),
         border = BorderStroke(
-            1.dp, SolidColor(colorResource(R.color.hr_request_vows))
+            1.dp, SolidColor(HrRequestVows)
         ),
-        colors = CardDefaults.cardColors(colorResource(R.color.details_row_profile_image_background))
+        colors = CardDefaults.cardColors(DetailsRowProfileImageBackground)
     ) {
         ProfileRow(img =R.drawable.jarir , name =name,title = stringResource(R.string.applicant))
     }
@@ -70,14 +74,14 @@ fun ProfileRow(img :Int ,title:String, name:String){
                 title, style = TextStyle(
                     fontSize = 11.sp,
                     fontFamily = Alexandria,
-                    color = colorResource(R.color.date_color)
+                    color = DateColor
                 )
             )
             Text(
                 name, style = TextStyle(
                     fontSize = 16.sp,
                     fontFamily = Alexandria,
-                    color = colorResource(R.color.main_color_yankies)
+                    color = MainColorYankies
                 )
             )
 

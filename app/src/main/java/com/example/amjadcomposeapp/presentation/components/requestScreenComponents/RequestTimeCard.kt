@@ -28,6 +28,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.SurveyNumberBackground
 
 
 @Composable
@@ -39,7 +42,7 @@ fun RequestTimeCard(time: String) {
             .height(60.dp),
         colors = CardDefaults.cardColors(Color.White),
         border = BorderStroke(
-            width = 1.dp, brush = SolidColor(colorResource(id = R.color.survey_number_background))
+            width = 1.dp, brush = SolidColor(SurveyNumberBackground)
         ),
     ) {
         Row(
@@ -82,7 +85,7 @@ fun RequestTimeTitle(title: String) {
         title, style = TextStyle(
             fontSize = 10.sp,
             fontFamily = Alexandria,
-            color = colorResource(R.color.date_color),
+            color = DateColor,
             fontWeight = FontWeight.Light
 
         )
@@ -95,7 +98,7 @@ fun RequestTimeTitleDetails(time: String) {
         time, style = TextStyle(
             fontSize = 11.sp,
             fontFamily = Alexandria,
-            color = colorResource(R.color.main_color_yankies),
+            color = MainColorYankies,
         )
     )
 }

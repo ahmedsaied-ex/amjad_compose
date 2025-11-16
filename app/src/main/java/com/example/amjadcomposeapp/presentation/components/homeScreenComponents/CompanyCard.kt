@@ -28,6 +28,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.DepartmentBackground
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.White
 
 
 @Composable
@@ -40,7 +44,7 @@ fun CompanyCard() {
             .height(180.dp),
         shape = RoundedCornerShape(10.dp),
         colors = CardDefaults.cardColors(
-            containerColor = colorResource(R.color.white)
+            containerColor = White
         )
     ) {
         Column {
@@ -69,7 +73,7 @@ fun Location() {
                 fontFamily = Alexandria,
                 fontWeight = FontWeight.Normal,
                 fontSize = 11.sp,
-                color = colorResource(R.color.date_color)
+                color = DateColor
             )
         )
         Text(
@@ -78,7 +82,7 @@ fun Location() {
                 fontFamily = Alexandria,
                 fontWeight = FontWeight.Normal,
                 fontSize = 11.sp,
-                color = colorResource(R.color.main_color_yankies)
+                color = MainColorYankies
             )
         )
 
@@ -92,7 +96,7 @@ fun Department() {
         modifier = Modifier
             .fillMaxWidth()
             .height(30.dp)
-            .background(color = colorResource(R.color.department_background)),
+            .background(color = DepartmentBackground),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
 
@@ -102,7 +106,7 @@ fun Department() {
                 fontFamily = Alexandria,
                 fontWeight = FontWeight.Normal,
                 fontSize = 11.sp,
-                color = colorResource(R.color.date_color)
+                color = DateColor
 
             ),
             modifier = Modifier.padding(end = 4.dp)
@@ -113,7 +117,7 @@ fun Department() {
                 fontFamily = Alexandria,
                 fontWeight = FontWeight.Normal,
                 fontSize = 11.sp,
-                color = colorResource(R.color.main_color_yankies)
+                color = MainColorYankies
             )
         )
 
@@ -140,7 +144,7 @@ fun CompanyName() {
                 fontWeight = FontWeight.Normal,
                 fontFamily = Alexandria,
                 fontSize = 18.sp,
-                color = colorResource(R.color.main_color_yankies)
+                color = MainColorYankies
             )
         )
     }

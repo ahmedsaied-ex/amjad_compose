@@ -33,6 +33,9 @@ import androidx.navigation.NavHostController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.AppBarr
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 
 @Composable
@@ -40,7 +43,7 @@ fun AppBar(navController: NavController) {
 
     Row(
         modifier = Modifier
-            .background(color = colorResource(id = R.color.AppBarr))
+            .background(color =AppBarr)
             .padding(horizontal = 16.dp)
             .height(68.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -66,7 +69,7 @@ fun PersonalPoints(navController: NavController) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             stringResource(R.string.poits), style = TextStyle(
-                fontFamily = Alexandria, color = colorResource(id = R.color.date_color)
+                fontFamily = Alexandria, color = DateColor
             )
         )
         Text(
@@ -99,7 +102,7 @@ fun Profile(navController: NavController) {
                         fontFamily = Alexandria,
                         fontWeight = FontWeight.Medium,
                         fontSize = 16.sp,
-                        color = colorResource(id = R.color.main_color_yankies)
+                        color = MainColorYankies
                     )
                 )
                 Spacer(modifier = Modifier.width(6.dp))
@@ -115,7 +118,7 @@ fun Profile(navController: NavController) {
                     fontFamily = Alexandria,
                     fontWeight = FontWeight.Normal,
                     fontSize = 11.sp,
-                    color = colorResource(id = R.color.date_color)
+                    color = DateColor
                 )
             )
         }

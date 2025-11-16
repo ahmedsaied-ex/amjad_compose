@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 fun WhereToPutYourMoney(){
@@ -19,7 +20,7 @@ fun WhereToPutYourMoney(){
         text="وين تحب توفر فلوسك؟", style = TextStyle(
             fontFamily = Alexandria,
             fontSize = 16.sp,
-            color = colorResource(R.color.main_color_yankies),
+            color = MainColorYankies,
             fontWeight = FontWeight.SemiBold
         ))
 }

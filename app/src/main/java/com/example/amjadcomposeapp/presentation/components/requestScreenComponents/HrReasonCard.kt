@@ -18,18 +18,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.ReasonCardBackground
+import com.example.amjadcomposeapp.ui.theme.ReasonCardBorder
 
 
 @Composable
 @Preview(locale = "ar", showBackground = true)
-fun ReasonCard(){
+fun ReasonCard() {
     Card(
         modifier = Modifier.padding(vertical = 20.dp, horizontal = 16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = colorResource(R.color.reason_card_background)
+            containerColor = ReasonCardBackground
         ),
         border = BorderStroke(
-            width = 1.dp, brush = SolidColor(colorResource(id = R.color.reason_card_border))
+            width = 1.dp, brush = SolidColor(ReasonCardBorder)
         ),
     ) {
         TextHrRequestBody(
@@ -41,21 +45,21 @@ fun ReasonCard(){
 
 
 @Composable
-fun TextHrRequestBody(title:String , body:String){
-    Column(Modifier
-        .padding(vertical = 20.dp, horizontal = 16.dp)
-        .fillMaxSize()) {
+fun TextHrRequestBody(title: String, body: String) {
+    Column(
+        Modifier
+            .padding(vertical = 20.dp, horizontal = 16.dp)
+            .fillMaxSize()
+    ) {
         Text(
             title, style = TextStyle(
-                fontFamily = Alexandria,
-                fontSize = 11.sp,
-                color = colorResource(R.color.date_color)
-            ))
+                fontFamily = Alexandria, fontSize = 11.sp, color = DateColor
+            )
+        )
         Text(
             body, style = TextStyle(
-                fontFamily = Alexandria,
-                fontSize = 16.sp,
-                color = colorResource(R.color.main_color_yankies)
-            ))
+                fontFamily = Alexandria, fontSize = 16.sp, color = MainColorYankies
+            )
+        )
     }
 }

@@ -30,6 +30,7 @@ import androidx.navigation.NavHostController
 import com.example.amjadcomposeapp.presentation.components.PersonalityCard
 import com.example.amjadcomposeapp.presentation.components.detailsScreenComponents.WhereToPutYourMoney
 import com.example.amjadcomposeapp.presentation.viewModel.MainScreenViewModel
+import com.example.amjadcomposeapp.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -70,7 +71,7 @@ fun MainScreen(
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
-            .background(color = Color.White)
+            .background(color = White)
 
     ) {
 

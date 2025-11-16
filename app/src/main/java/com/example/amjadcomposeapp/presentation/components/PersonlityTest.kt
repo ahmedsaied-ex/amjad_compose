@@ -36,6 +36,9 @@ import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.components.homeScreenComponents.PersonalityDialog
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CompanyColor
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 @Preview(showBackground = true)
@@ -69,23 +72,24 @@ fun PersonalityCard() {
                             fontSize = 18.sp,
                             fontFamily = Alexandria,
                             fontWeight = FontWeight.SemiBold,
-                            color = colorResource(R.color.main_color_yankies)
+                            color = MainColorYankies
                         )
                     )
 
                     Text(
                         stringResource(R.string.personality_body), style = TextStyle(
-                            color = colorResource(R.color.date_color),
+                            color = DateColor
+                        ),
                             fontFamily = Alexandria,
                             fontSize = 12.sp
-                        )
+
                     )
 
                     Button(
                         onClick = { showDialog = true },
                         shape = RoundedCornerShape(6.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = colorResource(R.color.company_color),
+                            containerColor = CompanyColor,
                             contentColor = Color.White
                         )
                     ) {

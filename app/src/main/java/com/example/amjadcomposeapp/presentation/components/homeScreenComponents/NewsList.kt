@@ -34,6 +34,8 @@ import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.NewsModel
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.NewsNumberText
 import com.google.android.material.loadingindicator.LoadingIndicator
 
 
@@ -91,7 +93,7 @@ fun NewsCard(news: NewsModel) {
                         style = TextStyle(
                             fontSize = 14.sp,
                             fontFamily =Alexandria,
-                            color = colorResource(R.color.main_color_yankies)
+                            color = MainColorYankies
                         ))
                     Spacer(Modifier.weight(1f))
                     Image(painter = painterResource(R.drawable.ic_views), contentDescription ="arrow right" )
@@ -99,7 +101,7 @@ fun NewsCard(news: NewsModel) {
                     Text(news.views.toString(),style = TextStyle(
                         fontSize = 14.sp,
                         fontFamily = Alexandria,
-                        color = colorResource(R.color.news_number_text)
+                        color = NewsNumberText
                     ))
                 }
             }}

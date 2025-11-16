@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
 
 
 @Composable
@@ -28,7 +29,7 @@ fun WorkingHours() {
                 fontSize = 11.sp,
                 fontWeight = FontWeight.Normal,
                 fontFamily = Alexandria,
-                color = colorResource(R.color.date_color)
+                color = DateColor
             )
         )
         Spacer(modifier = Modifier.width(10.dp))
@@ -37,14 +38,14 @@ fun WorkingHours() {
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
             fontFamily = Alexandria,
-            color = colorResource(R.color.date_color)
+            color = DateColor
         )
         Text(
             "صباحاً",
             fontSize = 11.sp,
             fontWeight = FontWeight.Light,
             fontFamily = Alexandria,
-            color = colorResource(R.color.date_color)
+            color = DateColor
         )
         Spacer(modifier = Modifier.width(10.dp))
         Text(
@@ -52,7 +53,7 @@ fun WorkingHours() {
             fontSize = 17.sp,
             fontWeight = FontWeight.SemiBold,
             fontFamily = Alexandria,
-            color = colorResource(R.color.date_color)
+            color = DateColor
         )
         Spacer(modifier = Modifier.width(10.dp))
         Text(
@@ -60,14 +61,14 @@ fun WorkingHours() {
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
             fontFamily = Alexandria,
-            color = colorResource(R.color.date_color)
+            color = DateColor
         )
         Text(
             "صباحاً",
             fontSize = 11.sp,
             fontWeight = FontWeight.Light,
             fontFamily = Alexandria,
-            color = colorResource(R.color.date_color)
+            color =DateColor
         )
 
     }

@@ -32,11 +32,11 @@ fun HRRequestState(modifier: Modifier,status:RequestStatus) {
         verticalAlignment = Alignment.CenterVertically, modifier = modifier
             .border(
                 width = 2.dp, // border thickness
-                color = colorResource(ui.borderColor), // border color
+                color = ui.borderColor, // border clor
                 shape = RoundedCornerShape(16.dp) // same shape as the background
             )
             .background(
-                color = colorResource(ui.backgroundColor), // background color
+                color =ui.backgroundColor, // background color
                 shape = RoundedCornerShape(16.dp) // rounded corners
             )
             .padding(horizontal = 12.dp, vertical = 6.dp) // padding inside the row
@@ -54,7 +54,7 @@ fun HRRequestState(modifier: Modifier,status:RequestStatus) {
             style = TextStyle(
                 fontFamily = Alexandria,
                 fontSize = 12.sp,
-                color = colorResource(ui.textColor)
+                color =  ui.textColor
             ),
 
             )

@@ -35,6 +35,9 @@ import com.example.amjadcomposeapp.domain.models.MediaType
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
 import com.example.amjadcomposeapp.presentation.viewModel.MediaViewModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.FilterBackground
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 
 @Composable
@@ -62,7 +65,7 @@ fun LibraryRequestRow(item: MediaRequest, navController: NavController, viewMode
                 modifier = Modifier
                     .size(50.dp)
                     .clip(RoundedCornerShape(10.dp))
-                    .background(colorResource(R.color.filter_background)),
+                    .background(FilterBackground),
                 contentAlignment = Alignment.Center
             ) {
                 when (item.type) {
@@ -92,7 +95,7 @@ fun LibraryRequestRow(item: MediaRequest, navController: NavController, viewMode
                     text = item.title,
                     style = TextStyle(
                         fontFamily = Alexandria,
-                        color = colorResource(R.color.main_color_yankies),
+                        color = MainColorYankies,
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Medium
                     )
@@ -102,7 +105,7 @@ fun LibraryRequestRow(item: MediaRequest, navController: NavController, viewMode
                     text = item.description,
                     style = TextStyle(
                         fontFamily = Alexandria,
-                        color = colorResource(R.color.date_color),
+                        color = DateColor,
                         fontSize = 11.sp
                     )
                 )
@@ -112,7 +115,7 @@ fun LibraryRequestRow(item: MediaRequest, navController: NavController, viewMode
                         text = "متوفر حتى:",
                         style = TextStyle(
                             fontFamily = Alexandria,
-                            color = colorResource(R.color.date_color),
+                            color =DateColor,
                             fontSize = 11.sp
                         )
                     )
@@ -120,7 +123,7 @@ fun LibraryRequestRow(item: MediaRequest, navController: NavController, viewMode
                         text = " 5 ابريل 2025 ",
                         style = TextStyle(
                             fontFamily = Alexandria,
-                            color = colorResource(R.color.main_color_yankies),
+                            color = MainColorYankies,
                             fontSize = 11.sp
                         )
                     )

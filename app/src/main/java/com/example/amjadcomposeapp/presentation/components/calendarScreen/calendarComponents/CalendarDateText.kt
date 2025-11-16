@@ -9,6 +9,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -23,7 +24,7 @@ fun SelectedDateText(
         text = selectedDate.format(dateFormat), style = TextStyle(
             fontSize = 18.sp,
             fontWeight = FontWeight.Medium,
-            color = colorResource(R.color.main_color_yankies),
+            color = MainColorYankies,
             fontFamily = Alexandria
         )
     )

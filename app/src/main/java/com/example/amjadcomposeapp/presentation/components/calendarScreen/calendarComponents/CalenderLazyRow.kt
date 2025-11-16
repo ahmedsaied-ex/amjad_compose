@@ -42,7 +42,10 @@ fun CalendarLazyRow(
         itemsIndexed(days) { index, date ->
             val isSelected = date == selectedDate
             CalendarDayCard(
-                date = date, isSelected = isSelected, dayFormatter = dayFormatter, onClick = {
+                date = date,
+                isSelected = isSelected,
+                dayFormatter = dayFormatter,
+                onClick = {
                     onDateSelected(date)
                     scope.launch {
                         listState.animateScrollToItem(index)

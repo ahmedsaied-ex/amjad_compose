@@ -1,65 +1,76 @@
 package com.example.amjadcomposeapp.presentation.components.requestScreenComponents
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.media3.common.C
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.RequestStatus
+import com.example.amjadcomposeapp.ui.theme.AcceptedTextColor
+import com.example.amjadcomposeapp.ui.theme.BackgroundAcceptedRequest
+import com.example.amjadcomposeapp.ui.theme.BackgroundRejectedRequest
+import com.example.amjadcomposeapp.ui.theme.BackgroundWaitingRequest
+import com.example.amjadcomposeapp.ui.theme.BorderAcceptedRequest
+import com.example.amjadcomposeapp.ui.theme.BorderRejectedRequest
+import com.example.amjadcomposeapp.ui.theme.BorderWaitingRequest
+import com.example.amjadcomposeapp.ui.theme.RejectedTextColor
+import com.example.amjadcomposeapp.ui.theme.WaitingTextColor
 
 data class StatusUI(
-    val backgroundColor: Int,
-    val borderColor: Int,
+    val backgroundColor: Color,
+    val borderColor: Color,
     val text: Int,
-    val textColor: Int
+    val textColor: Color
 )
 data class SmallBanner(
-    val backgroundColor: Int,
-    val borderColor: Int,
+    val backgroundColor: Color,
+    val borderColor: Color,
     val text: Int,
-    val textColor: Int,
+    val textColor: Color,
     val icon: Int
 )
 
 @Composable
 fun RequestStatus.toMainBannerUI(): StatusUI = when (this) {
     RequestStatus.ACCEPTED -> StatusUI(
-        R.color.background_accepted_request,
-        R.color.border_accepted_request,
+        BackgroundAcceptedRequest,
+        BorderAcceptedRequest,
         R.string.accepted_request,
-        R.color.accepted_text_color
+        AcceptedTextColor
     )
     RequestStatus.REJECTED -> StatusUI(
-        R.color.background_rejected_request,
-        R.color.border_rejected_request,
+        BackgroundRejectedRequest,
+        BorderRejectedRequest,
         R.string.rejected_request,
-        R.color.rejected_text_color
+        RejectedTextColor
     )
     RequestStatus.PENDING -> StatusUI(
-        R.color.background_waiting_request,
-        R.color.border_waiting_request,
+        BackgroundWaitingRequest,
+        BorderWaitingRequest,
         R.string.waiting_request,
-        R.color.waiting_text_color
+        WaitingTextColor
     )
 }
 @Composable
 fun RequestStatus.toSmallBannerUI(): SmallBanner = when (this) {
     RequestStatus.ACCEPTED -> SmallBanner(
-        R.color.background_accepted_request,
-        R.color.border_accepted_request,
+        BackgroundAcceptedRequest,
+        BorderAcceptedRequest,
         R.string.accepted_request,
-        R.color.accepted_text_color,
+        AcceptedTextColor,
         R.drawable.ic_agreed
     )
     RequestStatus.REJECTED -> SmallBanner(
-        R.color.background_rejected_request,
-        R.color.border_rejected_request,
+        BackgroundRejectedRequest,
+        BorderRejectedRequest,
         R.string.rejected_request,
-        R.color.rejected_text_color,
+        RejectedTextColor,
         R.drawable.cancelled_session_ic
     )
     RequestStatus.PENDING -> SmallBanner(
-        R.color.background_waiting_request,
-        R.color.border_waiting_request,
+        BackgroundWaitingRequest,
+        BorderWaitingRequest,
         R.string.waiting_request,
-        R.color.waiting_text_color,
+        WaitingTextColor,
         R.drawable.ic_pending
     )
 }

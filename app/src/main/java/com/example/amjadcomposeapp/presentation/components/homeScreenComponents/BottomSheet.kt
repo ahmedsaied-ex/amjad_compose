@@ -33,6 +33,8 @@ import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.BottomSheetItem
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.BottomSheetDividerColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 import com.google.android.material.loadingindicator.LoadingIndicator
 import kotlinx.serialization.Contextual
 
@@ -42,9 +44,7 @@ fun ConsultantBottomSheetContent(bottomSheetItems: UiState<List<BottomSheetItem>
     Column {
         TitleBottomSheet(onClick)
         HorizontalDivider(
-            color = Color(0xFFE0E0E0),
-            thickness = 1.dp,
-            modifier = Modifier.fillMaxWidth()
+            Modifier.fillMaxWidth(), 1.dp, BottomSheetDividerColor
         )
         when(bottomSheetItems){
             is UiState.Error -> {
@@ -82,7 +82,7 @@ fun TitleBottomSheet(onClick: () -> Unit) {
     Row(modifier = Modifier.padding(start = 16.dp, bottom = 14.dp)) {
         Text(
             stringResource(R.string.title_bottom_bar), style = TextStyle(
-                fontSize = 18.sp, fontFamily = Alexandria, fontWeight = FontWeight.SemiBold, color = colorResource(R.color.main_color_yankies)
+                fontSize = 18.sp, fontFamily = Alexandria, fontWeight = FontWeight.SemiBold, color = MainColorYankies
             )
         )
         Spacer(modifier = Modifier.weight(1f))
@@ -114,7 +114,7 @@ fun BottomSheetRow(bottomSheetItem: BottomSheetItem) {
             bottomSheetItem.label, style = TextStyle(
                 fontFamily = Alexandria,
                 fontSize = 16.sp,
-                color = colorResource(R.color.main_color_yankies)
+                color = MainColorYankies
             ),
             textAlign = TextAlign.Center
         )

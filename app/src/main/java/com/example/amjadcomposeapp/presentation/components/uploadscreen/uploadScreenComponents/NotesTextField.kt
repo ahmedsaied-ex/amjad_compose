@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
 
 
 @Composable
@@ -68,7 +69,7 @@ fun NotesTextField() {
             Text(
                 "اختيارى", style = TextStyle(
                     fontSize = 12.sp,
-                    color = colorResource(R.color.date_color),
+                    color = DateColor,
                     fontFamily = Alexandria,
                     fontWeight = FontWeight.Light,
 

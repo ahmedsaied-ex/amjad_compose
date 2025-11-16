@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.DetailsRowData
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DetailsRowProfileImageBackground
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
 fun DetailsRowCard(item: DetailsRowData, onItemClick: () -> Unit) {
@@ -39,7 +41,7 @@ fun DetailsRowCard(item: DetailsRowData, onItemClick: () -> Unit) {
                 .padding(start = 4.dp, end = 12.dp)
                 .size(40.dp)
                 .clip(RoundedCornerShape(10.dp))
-                .background(colorResource(R.color.details_row_profile_image_background))
+                .background(DetailsRowProfileImageBackground)
         ) {
             Image(
                 painter = painterResource(item.image),
@@ -52,7 +54,7 @@ fun DetailsRowCard(item: DetailsRowData, onItemClick: () -> Unit) {
             item.title, style = TextStyle(
                 fontFamily = Alexandria,
                 fontSize = 16.sp,
-                color = colorResource(R.color.main_color_yankies)
+                color = MainColorYankies
             )
         )
         Spacer(modifier = Modifier.weight(1f))

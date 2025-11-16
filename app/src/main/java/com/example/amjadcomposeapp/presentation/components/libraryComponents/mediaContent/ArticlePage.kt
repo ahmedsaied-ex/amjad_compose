@@ -25,6 +25,8 @@ import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.components.requestScreenComponents.CostumeAppBar
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 
 @Composable
@@ -113,7 +115,7 @@ fun HeaderText(text: String){
         text,
         style = TextStyle(
             fontSize = 18.sp,
-            color = colorResource(R.color.main_color_yankies),
+            color = MainColorYankies,
             fontWeight = FontWeight.SemiBold,
             fontFamily = Alexandria
         )
@@ -127,8 +129,9 @@ fun ContentText(text: String){
         style = TextStyle(
             fontSize = 11.sp,
             fontFamily = Alexandria,
-            color = colorResource(R.color.date_color),
+            color = DateColor
+        ),
         )
-    )
+
 }
 

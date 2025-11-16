@@ -32,6 +32,11 @@ import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.EmojisModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.EmojisNameColor
+import com.example.amjadcomposeapp.ui.theme.EmotionHistoryText
+import com.example.amjadcomposeapp.ui.theme.EmotionsBorderColor
+import com.example.amjadcomposeapp.ui.theme.EmotionsCardBackground
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 import kotlin.collections.forEach
 
 
@@ -44,10 +49,10 @@ fun EmotionsBanner(emojis: List<EmojisModel>) {
             .fillMaxWidth()
             .height(166.dp),
         border = BorderStroke(
-            width = 1.dp, brush = SolidColor(colorResource(id = R.color.emotions_border_color))
+            width = 1.dp, brush = SolidColor(EmotionsBorderColor)
         ),
         colors = CardDefaults.cardColors(
-            containerColor = colorResource(id = R.color.emotions_card_background)
+            containerColor = EmotionsCardBackground
         )
     ) {
         Box(
@@ -65,7 +70,7 @@ fun EmotionsBanner(emojis: List<EmojisModel>) {
                     stringResource(R.string.today_emotions), style = TextStyle(
                         fontFamily = Alexandria,
                         fontSize = 14.sp,
-                        color = colorResource(R.color.main_color_yankies)
+                        color = MainColorYankies
                     )
                 )
                 Spacer(modifier = Modifier.weight(1f))
@@ -85,7 +90,7 @@ fun BottomEmotionsCard() {
     Row(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(R.color.emotions_border_color)),
+            .background(EmotionsBorderColor),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -94,7 +99,7 @@ fun BottomEmotionsCard() {
             stringResource(R.string.emotions_history), style = TextStyle(
                 fontFamily = Alexandria,
                 fontSize = 14.sp,
-                color = colorResource(R.color.emotion_history_text)
+                color = EmotionHistoryText
             ), modifier = Modifier.padding(horizontal = 6.dp)
         )
         Image(painter = painterResource(R.drawable.ic_angle), contentDescription = "share")
@@ -141,7 +146,7 @@ fun EmojiCard(emoji: EmojisModel) {
                 fontFamily = Alexandria,
                 fontSize = 8.sp,
                 fontWeight = FontWeight.Medium,
-                color = colorResource(R.color.emojis_name_color)
+                color = EmojisNameColor
             )
         )
 

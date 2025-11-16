@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -24,6 +25,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CalenderAttendanceAndWithdrawal
+import com.example.amjadcomposeapp.ui.theme.CalenderAttendanceAndWithdrawalBackground
+import com.example.amjadcomposeapp.ui.theme.CalenderAttendanceTimeColor
+import com.example.amjadcomposeapp.ui.theme.CalenderWithdrawalTimeColor
 
 
 @Composable
@@ -47,7 +52,7 @@ fun AttendanceAndWithdrawalRow() {
         Row(
             modifier = Modifier
                 .clip(RoundedCornerShape(10.dp))
-                .background(colorResource(R.color.calender_attendance_and_withdrawal_background))
+                .background(CalenderAttendanceAndWithdrawalBackground)
                 .fillMaxWidth()
                 .padding(10.dp)
 
@@ -56,12 +61,12 @@ fun AttendanceAndWithdrawalRow() {
             Row (verticalAlignment = Alignment.CenterVertically){
                 AttendanceTimeText(
                     text = "9:59",
-                    color = R.color.calender_attendance_time_color,
+                    color = CalenderAttendanceTimeColor,
                     fontWeight = FontWeight.SemiBold,
                 )
                 AttendanceTimeText(
                     text = " ص ",
-                    color = R.color.calender_attendance_time_color,
+                    color = CalenderAttendanceTimeColor,
                     fontWeight = FontWeight.Light
                 )
                 Image(painter = painterResource(R.drawable.edit), contentDescription = "edit button")
@@ -70,12 +75,12 @@ fun AttendanceAndWithdrawalRow() {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 AttendanceTimeText(
                     text = "4:50",
-                    color = R.color.calender_withdrawal_time_color,
+                    color =CalenderWithdrawalTimeColor,
                     fontWeight = FontWeight.SemiBold,
                 )
                 AttendanceTimeText(
                     text = " م ",
-                    color = R.color.calender_withdrawal_time_color,
+                    color = CalenderWithdrawalTimeColor,
                     fontWeight = FontWeight.Light
                 )
                 Image(painter = painterResource(R.drawable.edit), contentDescription = "edit button")
@@ -86,13 +91,13 @@ fun AttendanceAndWithdrawalRow() {
 }
 
 @Composable
-fun AttendanceTimeText(text: String, color: Int, fontWeight: FontWeight) {
+fun AttendanceTimeText(text: String, color: Color, fontWeight: FontWeight) {
     Text(
         text, style = TextStyle(
             fontWeight = fontWeight,
             fontSize = 14.sp,
             fontFamily = Alexandria,
-            color = colorResource(color)
+            color = color
         )
     )
 }
@@ -104,7 +109,7 @@ fun AttendanceAndWithdrawText(text: String) {
             fontFamily = Alexandria,
             fontWeight = FontWeight.Light,
             fontSize = 11.sp,
-            color = colorResource(R.color.calender_attendance_and_withdrawal)
+            color = CalenderAttendanceAndWithdrawal
         )
     )
 }

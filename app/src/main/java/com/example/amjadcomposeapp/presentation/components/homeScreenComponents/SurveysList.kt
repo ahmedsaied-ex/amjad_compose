@@ -32,6 +32,10 @@ import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.SurveysTabsModel
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CardStroke
+import com.example.amjadcomposeapp.ui.theme.DateColor
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.SurveyNumberBackground
 import com.google.android.material.loadingindicator.LoadingIndicator
 
 
@@ -69,7 +73,7 @@ fun SurveysTabs(survey: SurveysTabsModel) {
         ), modifier = Modifier
             .padding(end = 10.dp)
             .border(
-                width = 1.dp, color = colorResource(R.color.card_stroke), // border color
+                width = 1.dp, color = CardStroke, // border color
                 shape = RoundedCornerShape(8.dp)
             )
     ) {
@@ -78,12 +82,12 @@ fun SurveysTabs(survey: SurveysTabsModel) {
                 modifier = Modifier
                     .size(24.dp)
                     .clip(RoundedCornerShape(20.dp))
-                    .background(color = colorResource(R.color.survey_number_background))
+                    .background(color= SurveyNumberBackground)
             ) {
                 Text(
                     modifier = Modifier.align(Alignment.Center),
                     text = survey.number.toString(),
-                    color = Color(0xff6B6D85),
+                    color = DateColor,
                     style = MaterialTheme.typography.bodyMedium
                 )
 
@@ -93,7 +97,7 @@ fun SurveysTabs(survey: SurveysTabsModel) {
                 modifier = Modifier.align(Alignment.CenterVertically),
                 text = survey.title,
                 style = TextStyle(
-                    color = colorResource(R.color.main_color_yankies),
+                    color = MainColorYankies,
                     fontSize = 14.sp,
                     fontFamily = Alexandria
                 )

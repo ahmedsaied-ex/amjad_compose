@@ -38,6 +38,9 @@ import com.example.amjadcomposeapp.domain.models.HrRequestModel
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CardStroke
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.White
 import com.google.android.material.loadingindicator.LoadingIndicator
 
 
@@ -49,10 +52,10 @@ fun HRRequests(hrList: UiState<List<HrRequestModel>>, navController: NavControll
             .padding(start = 16.dp, end = 16.dp, top = 40.dp)
             .height(122.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFFFFFFF)
+            containerColor = White
         ),
         border = BorderStroke(
-            width = 1.dp, brush = SolidColor(colorResource(id = R.color.card_stroke))
+            width = 1.dp, brush = SolidColor(CardStroke)
         ),
     ) {
         when (hrList) {
@@ -118,7 +121,7 @@ fun HrRequestItem(request: HrRequestModel, navController: NavController) {
             text = request.name,
             style = TextStyle(
                 fontFamily = Alexandria,
-                color = colorResource(R.color.main_color_yankies),
+                color = MainColorYankies,
                 fontSize = 11.sp
             ),
             modifier = Modifier.padding(top = 4.dp)

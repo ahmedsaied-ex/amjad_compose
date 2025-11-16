@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 
 @Composable
@@ -56,7 +57,7 @@ fun AudioPlayerUI(
                 Text(
                     text = title,
                     style = TextStyle(
-                        color = colorResource(R.color.main_color_yankies),
+                        color = MainColorYankies,
                         fontFamily = Alexandria,
                         fontWeight = FontWeight.Medium,
                         fontSize = 14.sp
