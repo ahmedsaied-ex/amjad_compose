@@ -20,8 +20,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -36,7 +34,6 @@ import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.BottomSheetDividerColor
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 import com.google.android.material.loadingindicator.LoadingIndicator
-import kotlinx.serialization.Contextual
 
 
 @Composable
@@ -60,7 +57,6 @@ fun ConsultantBottomSheetContent(bottomSheetItems: UiState<List<BottomSheetItem>
                     itemsIndexed(bottomSheetItems.data) { index, item ->
                         BottomSheetRow(item)
 
-                        // Draw line below item unless it's the last one
                         if (index < bottomSheetItems.data.lastIndex) {
                             HorizontalDivider(
                                 color = Color(0xFFE0E0E0),

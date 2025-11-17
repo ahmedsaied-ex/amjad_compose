@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.amjadcomposeapp.domain.models.MediaRequest
 import com.example.amjadcomposeapp.domain.models.MediaType
-import com.example.amjadcomposeapp.domain.models.RequestItem
 import com.example.amjadcomposeapp.domain.use_case.GetMediaUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

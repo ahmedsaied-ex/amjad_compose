@@ -4,7 +4,6 @@ import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.AssessmentCardModel
 import com.example.amjadcomposeapp.domain.models.BannerImageModel
 import com.example.amjadcomposeapp.domain.models.BottomSheetItem
-import com.example.amjadcomposeapp.domain.models.DetailsRowData
 import com.example.amjadcomposeapp.domain.models.EmojisModel
 import com.example.amjadcomposeapp.domain.models.HrRequestModel
 import com.example.amjadcomposeapp.domain.models.MediaRequest
@@ -252,13 +251,6 @@ object DummyData {
         SurveysTabsModel(
             title = "اخبار البلد", number = 12
         ),
-        SurveysTabsModel(
-            title = "اخبار البلد", number = 12
-        ),
-        SurveysTabsModel(
-            title = "اخبار البلد", number = 12
-        ),
-
         )
 
 
@@ -328,7 +320,7 @@ val RequestItems=listOf(
             id = "1",
             name = "أحمد ديردري",
             title = "مقدمة في Compose",
-            description = "تعلم أساسيات Jetpack Compose وكيفية بناء واجهات مستخدم حديثة لأندرويد.",
+            description = "تعلم أساسيات Jetpack Compose وكيفية بناء واجهات مستخدم حديثة لأندرويد.تعلم أساسيات Jetpack Compose وكيفية بناء واجهات مستخدم حديثة لأندرويد.تعلم أساسيات Jetpack Compose وكيفية بناء واجهات مستخدم حديثة لأندرويد.تعلم أساسيات Jetpack Compose وكيفية بناء واجهات مستخدم حديثة لأندرويد.تعلم أساسيات Jetpack Compose وكيفية بناء واجهات مستخدم حديثة لأندرويد.",
             type = MediaType.ARTICLES,
             url = "الباذنجان هو من الخضروات المفيدة جدًا للصحة، يحتوي على مضادات أكسدة قوية تساعد على حماية الخلايا وتحسين صحة القلب وخفض الكولسترول. كما أنه يحتوي على الألياف التي تحسن الهضم وتحافظ على الوزن المثالي. الباذنجان غني بالفيتامينات والمعادن مثل فيتامين C وK والبوتاسيوم والمغنيسيوم، مما يدعم الجهاز المناعي ويقوي العظام. يُنصح بتناوله مشويًا أو مسلوقًا للحصول على أقصى فائدة من العناصر الغذائية.",
             thumbnailUrl = R.drawable.jarir
@@ -337,7 +329,7 @@ val RequestItems=listOf(
             id = "2",
             name = "سارة علي",
             title = "Compose للمبتدئين",
-            description = "دليل فيديو خطوة بخطوة لمساعدة المبتدئين على فهم أساسيات Compose.",
+            description = "دليل فيديو خطوة بخطوة لمساعدة المبتدئين على فهم أساسيات Compose.دليل فيديو خطوة بخطوة لمساعدة المبتدئين على فهم أساسيات Compose.دليل فيديو خطوة بخطوة لمساعدة المبتدئين على فهم أساسيات Compose.دليل فيديو خطوة بخطوة لمساعدة المبتدئين على فهم أساسيات Compose.دليل فيديو خطوة بخطوة لمساعدة المبتدئين على فهم أساسيات Compose.",
             type = MediaType.VIDEO,
             url = "android.resource://com.example.amjadcomposeapp/raw/my_video",
             thumbnailUrl = null
@@ -346,7 +338,7 @@ val RequestItems=listOf(
             id = "3",
             name = "محمد خالد",
             title = "شرح Kotlin Coroutines",
-            description = "درس صوتي يشرح الكوروتينات والتزامن المهيكل في Kotlin.",
+            description = "درس صوتي يشرح الكوروتينات والتزامن المهيكل في Kotlin.درس صوتي يشرح الكوروتينات والتزامن المهيكل في Kotlin.درس صوتي يشرح الكوروتينات والتزامن المهيكل في Kotlin.درس صوتي يشرح الكوروتينات والتزامن المهيكل في Kotlin.درس صوتي يشرح الكوروتينات والتزامن المهيكل في Kotlin. ",
             type = MediaType.AUDIO,
             url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = R.drawable.jarir

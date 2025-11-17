@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -64,7 +64,9 @@ fun MostUsedOffersList(offers: UiState<List<MostUsedOfferModel>>, context: Conte
         is UiState.Success -> {
             LazyRow(modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 22.dp)) {
+                .padding(top = 22.dp),
+                contentPadding = PaddingValues(horizontal = 10.dp)
+            ) {
                 items(offers.data) { offer ->
                     MostUsedOffersItem(offer)
                 }
@@ -78,7 +80,7 @@ fun MostUsedOffersList(offers: UiState<List<MostUsedOfferModel>>, context: Conte
 fun MostUsedOffersItem(offer: MostUsedOfferModel) {
     Card(
         modifier = Modifier
-            .padding(end = 2.dp, bottom = 20.dp, start = 10.dp)
+            .padding(horizontal = 6.dp)
             .height(212.dp)
             .width(200.dp),
         shape = RoundedCornerShape(8.dp),

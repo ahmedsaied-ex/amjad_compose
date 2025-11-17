@@ -20,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -29,7 +28,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.RequestItem
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
@@ -37,10 +35,6 @@ import com.example.amjadcomposeapp.presentation.viewModel.RequestsViewModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.DateColor
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
-import java.net.URLEncoder
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
-
 
 @Composable
 fun RequestRow(

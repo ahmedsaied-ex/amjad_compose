@@ -9,6 +9,8 @@ import com.example.amjadcomposeapp.domain.models.FileData
 import com.example.amjadcomposeapp.utils.FilePickerHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject@HiltViewModel
+
+
 class UploadViewModel @Inject constructor(
     private val filePickerHelper: FilePickerHelper
 ): ViewModel() {
@@ -18,9 +20,7 @@ class UploadViewModel @Inject constructor(
 
     private val maxFiles = 5   // ← الحد الأقصى
 
-    fun checkPermission() {
-        permissionGranted.value = filePickerHelper.hasPermission()
-    }
+
 
     fun requestPermission(permissionLauncher: (String) -> Unit) {
         val permission = filePickerHelper.getReadPermission()

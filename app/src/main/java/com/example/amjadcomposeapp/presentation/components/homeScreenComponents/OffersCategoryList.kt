@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,13 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.OffersCategoryModel
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
@@ -45,7 +44,7 @@ fun OffersCategoryList(offersCategory: UiState<List<OffersCategoryModel>>,contex
             }
         }
         is UiState.Success -> {
-            LazyRow(modifier = Modifier.padding( top =18.dp )) {
+            LazyRow(modifier = Modifier.padding( top =18.dp ), contentPadding = PaddingValues(start = 6.dp, end = 16.dp)) {
                 items(offersCategory.data) { offer ->
                     OffersCategoryItem(offer)
                 }
@@ -64,7 +63,7 @@ fun OffersCategoryList(offersCategory: UiState<List<OffersCategoryModel>>,contex
 fun OffersCategoryItem(offer :OffersCategoryModel ) {
     Column(
         modifier = Modifier
-            .padding(start = 10.dp, end = 2.dp)
+            .padding(start = 10.dp)
             .height(110.dp)
             .width(80.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

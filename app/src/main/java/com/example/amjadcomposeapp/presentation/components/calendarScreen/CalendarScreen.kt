@@ -13,10 +13,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.AttendanceAndWithdrawalRow
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.AttendanceCalendarSection
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.CalendarGreenText
