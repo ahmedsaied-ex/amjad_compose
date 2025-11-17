@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -43,7 +44,7 @@ import com.google.android.material.loadingindicator.LoadingIndicator
 fun NewsList(news: UiState<List<NewsModel>>,context: Context) {
     when (news) {
         is UiState.Success -> {
-            LazyRow(modifier = Modifier.padding(top = 10.dp)) {
+            LazyRow(modifier = Modifier.padding(top = 10.dp), contentPadding = PaddingValues(horizontal = 11.dp)) {
                 items(news.data) {news->
                     NewsCard(news = news)
                 }
@@ -65,12 +66,11 @@ fun NewsList(news: UiState<List<NewsModel>>,context: Context) {
 }
 
 @Composable
-
 fun NewsCard(news: NewsModel) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
         Card(modifier = Modifier
-            .padding(start =16.dp,)
+            .padding(horizontal = 5.dp,)
             .height(192.dp)
             .width(280.dp)
             ,

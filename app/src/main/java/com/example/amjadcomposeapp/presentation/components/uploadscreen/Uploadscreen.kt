@@ -20,13 +20,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -55,7 +52,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
     val filePickerLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.OpenMultipleDocuments()
     ) { uris: List<Uri> ->
-        uris.forEach { uri -> viewModel.onFilePicked(uri = uri, context  =context) }
+        uris.forEach { uri -> viewModel.onFilePicked(uri = uri, context = context) }
     }
 
     val permissionLauncher = rememberLauncherForActivityResult(
@@ -94,8 +91,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
                 // Title
                 item {
                     Text(
-                        stringResource(R.string.required_Attachement_text),
-                        style = TextStyle(
+                        stringResource(R.string.required_Attachement_text), style = TextStyle(
                             color = MainColorYankies,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 16.sp,
@@ -128,8 +124,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
                                         permissionLauncher.launch(permission)
                                     }
                                 }
-                            }
-                        ,
+                            },
                         color = DateColor,
                         strokeWidth = 1.dp,
                         dashLength = 4.dp,
@@ -145,8 +140,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
                         AttachmentCard(
                             fileName = file.name,
                             fileSize = file.size,
-                            onRemove = { viewModel.removeFile(file) }
-                        )
+                            onRemove = { viewModel.removeFile(file) })
                     }
                 }
 
@@ -165,8 +159,7 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
             onClick = { /* TODO: upload file */ },
             shape = RoundedCornerShape(6.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = AttachmentButtonColor,
-                contentColor = Color.White
+                containerColor = AttachmentButtonColor, contentColor = Color.White
             ),
             modifier = Modifier
                 .fillMaxWidth()
@@ -175,11 +168,8 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
 
         ) {
             Text(
-                stringResource(R.string.attache_document),
-                style = TextStyle(
-                    color = Color.White,
-                    fontFamily = Alexandria,
-                    fontSize = 18.sp
+                stringResource(R.string.attache_document), style = TextStyle(
+                    color = Color.White, fontFamily = Alexandria, fontSize = 18.sp
                 )
             )
         }

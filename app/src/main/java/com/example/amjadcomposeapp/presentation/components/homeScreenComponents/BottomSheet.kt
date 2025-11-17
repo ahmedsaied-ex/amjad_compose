@@ -60,7 +60,6 @@ fun ConsultantBottomSheetContent(bottomSheetItems: UiState<List<BottomSheetItem>
                     itemsIndexed(bottomSheetItems.data) { index, item ->
                         BottomSheetRow(item)
 
-                        // Draw line below item unless it's the last one
                         if (index < bottomSheetItems.data.lastIndex) {
                             HorizontalDivider(
                                 color = Color(0xFFE0E0E0),

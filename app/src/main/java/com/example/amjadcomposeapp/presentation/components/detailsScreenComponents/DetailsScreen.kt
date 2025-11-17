@@ -26,7 +26,7 @@ import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.DetailsRowData
 import com.example.amjadcomposeapp.presentation.components.PersonalityCard
-import com.example.amjadcomposeapp.presentation.components.homeScreenComponents.PointsAndOffers
+import com.example.amjadcomposeapp.presentation.components.detailsScreenComponents.PointsAndOffers
 import com.example.amjadcomposeapp.presentation.viewModel.DetailsScreenViewModel
 import com.example.amjadcomposeapp.ui.theme.DetailsBackground
 

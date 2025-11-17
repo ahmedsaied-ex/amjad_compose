@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -50,12 +51,11 @@ fun AssessmentList(assessments: UiState<List<AssessmentCardModel>>,context: Cont
            }
        }
        is UiState.Success -> {
-           LazyRow(modifier = Modifier.padding(top = 40.dp)) {
+           LazyRow(modifier = Modifier.padding(top = 40.dp), contentPadding = PaddingValues(horizontal = 11.dp)) {
                itemsIndexed(assessments.data) { index, assessment ->
                    val (initialColor, finalColor) = AssessmentColorProvider.getGradientColorsByIndex(
                        index
                    )
-
                    AssessmentCard(
                        assessment = assessment,
                        initialColor = initialColor,
@@ -77,7 +77,7 @@ fun AssessmentList(assessments: UiState<List<AssessmentCardModel>>,context: Cont
 fun AssessmentCard(assessment: AssessmentCardModel, initialColor: Color, finalColor: Color) {
     Card(
         modifier = Modifier
-            .padding(end = 1.dp, start = 14.dp)
+            .padding(horizontal = 5.dp)
             .size(168.dp)
         ,
         colors = CardDefaults.cardColors(Color.White),
