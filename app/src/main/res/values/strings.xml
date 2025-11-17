@@ -63,5 +63,9 @@
     <string name="size_of_attachment">"5 ميجا "</string>
     <string name="content_description">تفاصيل المقال</string>
     <string name="attache_document">إرفاق الوثيقة</string>
+    <string name="articles">مقالات</string>
+    <string name="audios">ملفات صوتية</string>
+    <string name="videos">فيديو</string>
+    <string name="there_was_an_error">there was an error</string>
 
 </resources>

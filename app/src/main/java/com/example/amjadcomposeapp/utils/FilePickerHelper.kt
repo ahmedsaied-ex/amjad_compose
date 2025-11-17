@@ -23,6 +23,18 @@ class FilePickerHelper @Inject constructor(
         return ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED
     }
 
+     fun getFileSizeInBytes(uri: Uri, context: Context): Long {
+        val cursor = context.contentResolver.query(uri, null, null, null, null)
+        val sizeIndex = cursor?.getColumnIndex(OpenableColumns.SIZE) ?: -1
+        cursor?.moveToFirst()
+
+        val size = if (sizeIndex >= 0) cursor?.getLong(sizeIndex) else null
+
+        cursor?.close()
+        return size ?: 0L
+    }
+
+
 
     fun getReadPermission(): String {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)

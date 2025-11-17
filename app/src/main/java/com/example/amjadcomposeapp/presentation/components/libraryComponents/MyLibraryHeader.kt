@@ -33,7 +33,6 @@ fun MyLibraryHeader(
         HeaderWithBackButton(
             title = stringResource(R.string.requests_that_sended_to_you),
             onBackClick = { navController.popBackStack() },
-
             )
         LibraryFilterBar(
             selected = selectedFilter, onSelectedChange = onFilterChange

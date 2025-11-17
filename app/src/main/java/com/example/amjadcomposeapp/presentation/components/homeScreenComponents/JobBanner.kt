@@ -35,17 +35,23 @@ import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 @Composable
 @Preview(showBackground = true)
 fun JobsPanner() {
-    Card(modifier = Modifier
-        .padding(top = 30.dp, start = 16.dp, end = 16.dp )
-        .height(114.dp)
-        .fillMaxWidth(),
+    Card(
+        modifier = Modifier
+            .padding(top = 30.dp, start = 16.dp, end = 16.dp, bottom =30.dp )
+            .height(114.dp)
+            .fillMaxWidth(),
         colors = CardDefaults.cardColors(
-        containerColor = Color.White,
-    )
-        , elevation = CardDefaults.cardElevation(
-        defaultElevation = 5.dp)
+            containerColor = Color.White,
+        ), elevation = CardDefaults.cardElevation(
+            defaultElevation = 5.dp
+        )
     ) {
-        Row (verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxSize().padding(16.dp)){
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
             Column(
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier
@@ -91,7 +97,13 @@ fun JobsPanner() {
                     )
                 )
             }
-            Image(painter = painterResource(R.drawable.illu_discover_your_personality), contentDescription = "job card", modifier = Modifier.weight(0.3f))
+            Image(
+                painter = painterResource(R.drawable.illu_discover_your_personality),
+                contentDescription = "job card",
+                modifier = Modifier.weight(0.3f)
+            )
+
         }
+
     }
 }

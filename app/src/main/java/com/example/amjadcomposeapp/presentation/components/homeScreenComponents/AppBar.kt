@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -156,3 +157,18 @@ fun ProfilePicture() {
     }
 }
 
+@Composable
+fun WhereToPutYourMoney(){
+    Row(modifier = Modifier.padding(top = 43.dp, start = 16.dp).fillMaxWidth()) {
+        Image(painter = painterResource(R.drawable.ic_shopping), contentDescription = "shopping bags image", modifier = Modifier.size(24.dp))
+        Text(
+            modifier = Modifier.padding(start = 8.dp),
+            text = "وين تحب توفر فلوسك؟", style = TextStyle(
+                fontFamily = Alexandria,
+                fontSize = 16.sp,
+                color = MainColorYankies,
+                fontWeight = FontWeight.SemiBold
+            )
+        )
+    }
+}

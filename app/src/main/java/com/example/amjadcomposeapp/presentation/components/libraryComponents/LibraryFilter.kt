@@ -12,10 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.presentation.viewModel.MediaFilter
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.CompanyColor
@@ -27,8 +29,7 @@ private fun LibraryFilterChipItem(
     option: MediaFilter, isSelected: Boolean, text: String, onClick: (MediaFilter) -> Unit
 ) {
     val bgColor = if (isSelected) Color.White else Color.Transparent
-    val textColor =
-        if (isSelected) CompanyColor else MainColorYankies
+    val textColor = if (isSelected) CompanyColor else MainColorYankies
 
     Box(
         modifier = Modifier
@@ -63,17 +64,19 @@ fun LibraryFilterBar(
         LibraryFilterChipItem(
             option = MediaFilter.ARTICLES,
             isSelected = selected == MediaFilter.ARTICLES,
-            text = "مقالات"
+            text = stringResource(R.string.articles)
         ) { onSelectedChange(it) }
 
         LibraryFilterChipItem(
             option = MediaFilter.AUDIO,
             isSelected = selected == MediaFilter.AUDIO,
-            text = "ملفات صوتية"
+            text = stringResource(R.string.audios)
         ) { onSelectedChange(it) }
 
         LibraryFilterChipItem(
-            option = MediaFilter.VIDEO, isSelected = selected == MediaFilter.VIDEO, text = "فيديو"
+            option = MediaFilter.VIDEO,
+            isSelected = selected == MediaFilter.VIDEO,
+            text = stringResource(R.string.videos)
         ) { onSelectedChange(it) }
 
     }

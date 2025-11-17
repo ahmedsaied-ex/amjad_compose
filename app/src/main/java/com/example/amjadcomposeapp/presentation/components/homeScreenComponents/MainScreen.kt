@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.amjadcomposeapp.presentation.components.PersonalityCard
-import com.example.amjadcomposeapp.presentation.components.detailsScreenComponents.WhereToPutYourMoney
 import com.example.amjadcomposeapp.presentation.viewModel.MainScreenViewModel
 import com.example.amjadcomposeapp.ui.theme.White
 

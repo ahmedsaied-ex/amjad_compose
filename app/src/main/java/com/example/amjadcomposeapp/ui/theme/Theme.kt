@@ -12,15 +12,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = Purple80, secondary = PurpleGrey80, tertiary = Pink80
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = Purple40, secondary = PurpleGrey40, tertiary = Pink40
 )
 
 @Composable
@@ -34,13 +30,13 @@ fun AmjadComposeAppTheme(
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
+
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
 
     MaterialTheme(
-        colorScheme = colorScheme,
-        typography = AppTypography, // ✅ Set global typography
+        colorScheme = colorScheme, typography = AppTypography, // ✅ Set global typography
         content = content
     )
 }
@@ -49,9 +45,9 @@ fun AmjadComposeAppTheme(
 object AssessmentColorProvider {
     fun getGradientColorsByIndex(index: Int): Pair<Color, Color> {
         return when (index % 3) {
-            0 -> AssessmentDarkPurple to AssessmentLightPurple
-            1 -> AssessmentDarkOrange to AssessmentLightOrange
-            else -> AssessmentDarkGreen to AssessmentLightGreen
+            0 -> AssessmentLightPurple to AssessmentDarkPurple
+            1 -> AssessmentLightOrange to AssessmentDarkOrange
+            else -> AssessmentLightGreen to AssessmentDarkGreen
         }
     }
 }

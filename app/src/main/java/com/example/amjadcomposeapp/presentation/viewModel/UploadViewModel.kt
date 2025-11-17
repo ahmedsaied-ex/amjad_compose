@@ -18,7 +18,7 @@ class UploadViewModel @Inject constructor(
     val selectedFiles = mutableStateOf<List<FileData>>(emptyList())
     val permissionGranted = mutableStateOf(false)
 
-    private val maxFiles = 5   // ← الحد الأقصى
+    private val maxFiles = 5
 
 
 
@@ -27,19 +27,26 @@ class UploadViewModel @Inject constructor(
         permissionLauncher(permission)
     }
 
-    fun onFilePicked(uri: Uri,context: Context) {
+    fun onFilePicked(uri: Uri, context: Context) {
 
-        // لو وصل 5 ملفات → ما تضيفش أي جديد
         if (selectedFiles.value.size >= maxFiles) {
-            showToast(context)
+            showToast(context,"Maximum number of files reached!")
+            return
+        }
+
+        val fileSize = filePickerHelper.getFileSizeInBytes(uri, context)
+        val maxSize = 5 * 1024 * 1024
+
+        if (fileSize > maxSize) {
+            showToast(context,"File size exceeds the limit!")
             return
         }
 
         val fileData = filePickerHelper.getFileData(uri)
 
-
         selectedFiles.value = selectedFiles.value + fileData
     }
+
 
     fun removeFile(fileData: FileData) {
         selectedFiles.value = selectedFiles.value.filter { it != fileData }
@@ -47,13 +54,12 @@ class UploadViewModel @Inject constructor(
 
     fun canAddMoreFiles(): Boolean = selectedFiles.value.size < maxFiles
 
-    private fun showToast(context: Context) {
+    private fun showToast(context: Context,errorMessage:String) {
         Toast.makeText(
             context,
-            "you have reached the maximum capicity with 5 files",
+            errorMessage,
             Toast.LENGTH_SHORT
         ).show()
-
     }
 
 }

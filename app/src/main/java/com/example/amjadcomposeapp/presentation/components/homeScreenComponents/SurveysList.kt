@@ -21,10 +21,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.SurveysTabsModel
 import com.example.amjadcomposeapp.helpers.UiState
 import com.example.amjadcomposeapp.ui.theme.Alexandria
@@ -43,7 +45,7 @@ fun SurveysList(serves: UiState<List<SurveysTabsModel>>, context: Context) {
                 .fillMaxWidth()
                 .height(60.dp)) {
                 Text(
-                    "there was an error", style = TextStyle(
+                    stringResource(R.string.there_was_an_error), style = TextStyle(
                         color = Color.Red.copy(alpha = .5f)
                     )
                 )

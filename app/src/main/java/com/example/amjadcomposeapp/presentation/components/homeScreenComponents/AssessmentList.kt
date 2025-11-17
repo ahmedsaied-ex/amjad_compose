@@ -42,33 +42,38 @@ import com.google.android.material.loadingindicator.LoadingIndicator
 
 
 @Composable
-fun AssessmentList(assessments: UiState<List<AssessmentCardModel>>,context: Context) {
-   when(assessments){
-       is UiState.Loading -> {
-           Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
-               LoadingIndicator(context)
-           }
-       }
-       is UiState.Success -> {
-           LazyRow(modifier = Modifier.padding(top = 40.dp), contentPadding = PaddingValues(horizontal = 11.dp)) {
-               itemsIndexed(assessments.data) { index, assessment ->
-                   val (initialColor, finalColor) = AssessmentColorProvider.getGradientColorsByIndex(
-                       index
-                   )
-                   AssessmentCard(
-                       assessment = assessment,
-                       initialColor = initialColor,
-                       finalColor = finalColor
-                   )
-               }
-           }
-       }
-       is UiState.Error -> {
-           Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
-               Text(text = assessments.message,)
-           }
-       }
-   }
+fun AssessmentList(assessments: UiState<List<AssessmentCardModel>>, context: Context) {
+    when (assessments) {
+        is UiState.Loading -> {
+            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                LoadingIndicator(context)
+            }
+        }
+
+        is UiState.Success -> {
+            LazyRow(
+                modifier = Modifier.padding(top = 40.dp),
+                contentPadding = PaddingValues(horizontal = 11.dp)
+            ) {
+                itemsIndexed(assessments.data) { index, assessment ->
+                    val (initialColor, finalColor) = AssessmentColorProvider.getGradientColorsByIndex(
+                        index
+                    )
+                    AssessmentCard(
+                        assessment = assessment,
+                        initialColor = initialColor,
+                        finalColor = finalColor
+                    )
+                }
+            }
+        }
+
+        is UiState.Error -> {
+            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                Text(text = assessments.message)
+            }
+        }
+    }
 
 }
 
@@ -77,8 +82,7 @@ fun AssessmentCard(assessment: AssessmentCardModel, initialColor: Color, finalCo
     Card(
         modifier = Modifier
             .padding(horizontal = 5.dp)
-            .size(168.dp)
-        ,
+            .size(168.dp),
         colors = CardDefaults.cardColors(Color.White),
         elevation = CardDefaults.cardElevation(2.dp)
     ) {
@@ -152,7 +156,7 @@ fun AssessmentCardImage(initialColor: Color, finalColor: Color, img: Int, title:
                 brush = Brush.horizontalGradient(
                     colors = listOf(
                         initialColor, // Orange
-                       finalColor, // Orange
+                        finalColor, // Orange
                         // Amber
                     )
                 )
