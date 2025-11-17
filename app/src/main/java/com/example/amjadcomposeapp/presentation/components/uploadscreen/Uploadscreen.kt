@@ -1,6 +1,7 @@
 package com.example.amjadcomposeapp.presentation.components.uploadscreen
 
 import android.net.Uri
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -19,9 +20,12 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -47,13 +51,12 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
 
     val selectedFile = viewModel.selectedFiles.value
 
-
+    val context = LocalContext.current
     val filePickerLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.OpenMultipleDocuments()
     ) { uris: List<Uri> ->
-        uris.forEach { uri -> viewModel.onFilePicked(uri) }
+        uris.forEach { uri -> viewModel.onFilePicked(uri = uri, context  =context) }
     }
-
 
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -65,7 +68,6 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
             )
         }
     }
-
 
     Box(
         modifier = Modifier
@@ -108,6 +110,15 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
+                                if (!viewModel.canAddMoreFiles()) {
+                                    Toast.makeText(
+                                        context,
+                                        "You can upload up to 5 files only",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    return@clickable
+                                }
+
                                 if (viewModel.permissionGranted.value) {
                                     filePickerLauncher.launch(
                                         arrayOf("application/pdf", "image/jpeg", "image/png")
@@ -117,7 +128,8 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
                                         permissionLauncher.launch(permission)
                                     }
                                 }
-                            },
+                            }
+                        ,
                         color = DateColor,
                         strokeWidth = 1.dp,
                         dashLength = 4.dp,

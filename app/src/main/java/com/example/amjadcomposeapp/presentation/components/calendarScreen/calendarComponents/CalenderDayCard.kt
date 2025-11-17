@@ -15,12 +15,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.CalendarColorSelectedDayNumber
 import com.example.amjadcomposeapp.ui.theme.CalendarColorText
@@ -32,8 +30,6 @@ import com.example.amjadcomposeapp.ui.theme.CalendarItemUnSelectedBorder
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-
-// -------------------- Single Day Card --------------------
 @Composable
 fun CalendarDayCard(
     date: LocalDate,
@@ -56,7 +52,9 @@ fun CalendarDayCard(
             color = if (isSelected) CalendarItemSelectedBorder
             else CalendarItemUnSelectedBorder
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = if (isSelected) 2.dp else 0.dp)
+        elevation = if (isSelected) CardDefaults.cardElevation(
+            defaultElevation = 6.dp
+        ) else CardDefaults.cardElevation(0.dp)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
