@@ -17,13 +17,13 @@ import com.example.amjadcomposeapp.presentation.components.libraryComponents.Med
 import com.example.amjadcomposeapp.presentation.viewModel.MediaViewModel
 
 fun NavGraphBuilder.libraryGraph(navController: NavHostController) {
-    composable(AppRoute.Library::class.qualifiedName!!) { backStackEntry ->
+    composable<AppRoute.Library> { backStackEntry ->
         val viewModel: MediaViewModel = hiltViewModel(backStackEntry)
         LibraryScreen(navController = navController, viewModel = viewModel)
     }
-    composable(AppRoute.LibraryContent::class.qualifiedName!!) { backStackEntry ->
+    composable<AppRoute.LibraryContent> { backStackEntry ->
         val parentEntry = remember(backStackEntry) {
-            navController.getBackStackEntry(AppRoute.Library::class.qualifiedName!!)
+            navController.getBackStackEntry(AppRoute.Library)
         }
         val viewModel: MediaViewModel = hiltViewModel(parentEntry)
 
@@ -40,3 +40,42 @@ fun NavGraphBuilder.libraryGraph(navController: NavHostController) {
         }
     }
 }
+/*fun NavGraphBuilder.libraryGraph(navController: NavHostController) {
+
+    // -------- Library Screen --------
+    composable<AppRoute.Library> { backStackEntry ->
+        val viewModel: MediaViewModel = hiltViewModel(backStackEntry)
+        LibraryScreen(
+            navController = navController,
+            viewModel = viewModel
+        )
+    }
+
+    // -------- Library Content Screen --------
+    composable<AppRoute.LibraryContent> { backStackEntry ->
+
+        // parent entry علشان ال ViewModel ما يتعملوش recreate
+        val parentEntry = remember(backStackEntry) {
+            navController.getBackStackEntry(AppRoute.Library)
+        }
+
+        val viewModel: MediaViewModel = hiltViewModel(parentEntry)
+
+        val selectedItem by viewModel.selectedRequest.collectAsState()
+
+        if (selectedItem != null) {
+            MediaContentScreen(
+                navController = navController,
+                item = selectedItem!!
+            )
+        } else {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("No Media Selected")
+            }
+        }
+    }
+}
+*/

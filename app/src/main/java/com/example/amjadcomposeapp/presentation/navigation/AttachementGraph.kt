@@ -11,8 +11,7 @@ import com.example.amjadcomposeapp.presentation.components.uploadscreen.UploadSc
 import com.example.amjadcomposeapp.presentation.viewModel.UploadViewModel
 
 fun NavGraphBuilder.attachmentGraph(navController: NavHostController) {
-    composable(AppRoute.Attachment::class.qualifiedName!!) {
-
+    composable<AppRoute.Attachment> {
         UploadScreenRoute(navController)
     }
 }

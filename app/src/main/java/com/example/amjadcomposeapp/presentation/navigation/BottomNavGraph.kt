@@ -11,25 +11,25 @@ import androidx.compose.material3.Text
 import com.example.amjadcomposeapp.presentation.components.homeScreenComponents.MainScreen
 
 fun NavGraphBuilder.bottomNavGraph(navController: NavHostController) {
-    composable(AppRoute.Home::class.qualifiedName!!) {
+    composable<AppRoute.Home>{
         MainScreen(navController = navController)
     }
-    composable(AppRoute.Offers::class.qualifiedName!!) {
+    composable<AppRoute.Offers> {
         Box(modifier = androidx.compose.ui.Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("Offers Screen")
         }
     }
-    composable(AppRoute.Vendors::class.qualifiedName!!) {
+    composable<AppRoute.Vendors>{
         Box(modifier = androidx.compose.ui.Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("Vendors Screen")
         }
     }
-    composable(AppRoute.News::class.qualifiedName!!) {
+    composable<AppRoute.News> {
         Box(modifier = androidx.compose.ui.Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("News & Surveys Screen")
         }
     }
-    composable(AppRoute.MyConsultant::class.qualifiedName!!) {
+    composable<AppRoute.MyConsultant> {
         Box(modifier = androidx.compose.ui.Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("My Consultant Screen")
         }

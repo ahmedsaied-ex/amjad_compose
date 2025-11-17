@@ -33,6 +33,7 @@
     <string name="logout_profile">تسجيل خروج</string>
     <string name="requests_that_sended_to_you">طلبات مرسلة إليك في انتظار قرارك</string>
     <string name="accepted_request">طلب مقبول (مُوافق عليه)</string>
+    <string name="accepted">طلب مقبول</string>
     <string name="rejected_request">طلب مرفوض</string>
     <string name="waiting_request">بانتظار موافقتك</string>
     <string name="sent_at">"تم ارسال الطلب منذ: "</string>

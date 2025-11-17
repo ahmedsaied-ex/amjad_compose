@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -44,6 +46,7 @@ import com.example.amjadcomposeapp.domain.models.RequestStatus
 import com.example.amjadcomposeapp.presentation.viewModel.FilterOption
 import com.example.amjadcomposeapp.presentation.viewModel.RequestsViewModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
+import com.example.amjadcomposeapp.ui.theme.CompanyColor
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
@@ -62,7 +65,9 @@ fun RequestsScreen(
 
     Column(
         modifier = Modifier
-            .fillMaxSize(),
+            .background(CompanyColor.copy(alpha = .02f))
+            .fillMaxSize()
+            ,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         RequestsHeader(
@@ -74,14 +79,12 @@ fun RequestsScreen(
         LazyColumn(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
-                .fillMaxSize()
+                .fillMaxSize(),
+            contentPadding = PaddingValues(vertical = 12.dp)
         ) {
-            itemsIndexed(state.filteredItems, key = { _, item -> item.id }) { index, item ->
-                if (index == 0) {
-                    Spacer(modifier = Modifier.height(24.dp))
-                }
+            items(state.filteredItems){item->
                 RequestRow(item = item, navController = navController,viewModel=viewModel)
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(12.dp))
             }
         }
     }
@@ -93,13 +96,11 @@ fun RequestsHeader(
     navController: NavController,
     selectedFilter: FilterOption,
     onFilterChange: (FilterOption) -> Unit,
-    onBackClick: (() -> Unit)? = null,
-
-
     ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.background(Color.White)
+            .padding(horizontal = 16.dp)
     ) {
 
         Row(
@@ -113,13 +114,6 @@ fun RequestsHeader(
                 contentDescription = "back button",
                 modifier = Modifier
                     .padding(4.dp)
-                    .then(
-                        if (onBackClick != null)
-                            Modifier
-                                .background(Color.Transparent)
-                                .padding(4.dp)
-                        else Modifier
-                    )
                     .clickable {
                         navController.popBackStack()
                     }

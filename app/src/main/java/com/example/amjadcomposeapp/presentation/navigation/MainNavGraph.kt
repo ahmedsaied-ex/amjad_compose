@@ -8,7 +8,7 @@ import com.example.amjadcomposeapp.presentation.navigation.calenderGraph
 import com.example.amjadcomposeapp.presentation.navigation.attachmentGraph
 import com.example.amjadcomposeapp.presentation.navigation.libraryGraph
 import com.example.amjadcomposeapp.presentation.navigation.requestsGraph
-import com.example.amjadcomposeapp.presentation.navigation.secondaryGraph
+import com.example.amjadcomposeapp.presentation.navigation.detailsGraph
 
 
 @Composable
@@ -19,7 +19,7 @@ fun MainNavHost(navController: NavHostController, modifier: Modifier = Modifier)
         modifier = modifier
     ) {
         bottomNavGraph(navController)
-        secondaryGraph(navController)
+        detailsGraph(navController)
         requestsGraph(navController)
         attachmentGraph(navController)
         calenderGraph(navController)

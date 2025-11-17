@@ -34,7 +34,7 @@ fun RequestStatus.toMainBannerUI(): StatusUI = when (this) {
     RequestStatus.ACCEPTED -> StatusUI(
         BackgroundAcceptedRequest,
         BorderAcceptedRequest,
-        R.string.accepted_request,
+        R.string.accepted,
         AcceptedTextColor
     )
     RequestStatus.REJECTED -> StatusUI(

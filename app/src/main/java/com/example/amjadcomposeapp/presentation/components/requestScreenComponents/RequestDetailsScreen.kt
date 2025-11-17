@@ -26,11 +26,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.RequestItem
+import com.example.amjadcomposeapp.domain.models.RequestStatus
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
-fun RequestDetailsScreen(navController: NavController,item: RequestItem) {
+fun RequestDetailsScreen(navController: NavController,item: RequestItem?) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -40,9 +41,9 @@ fun RequestDetailsScreen(navController: NavController,item: RequestItem) {
         item {
             TopRequestDetails(
                 navController = navController,
-                name = item.name,
-                status = item.status,
-                time = item.description,
+                name = item?.name?:"",
+                status = item?.status?: RequestStatus.PENDING,
+                time = item?.description?:"",
             )
         }
         item {

@@ -6,8 +6,7 @@ import androidx.navigation.compose.composable
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.CustomCalendar
 
 fun NavGraphBuilder.calenderGraph(navController: NavHostController) {
-    composable(AppRoute.Calendar::class.qualifiedName!!) {
-
+    composable<AppRoute.Calendar> {
         CustomCalendar(navController)
     }
 }

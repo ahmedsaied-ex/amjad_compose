@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.example.amjadcomposeapp.presentation.components.requestScreenComponents.RequestDetailsScreen
 import com.example.amjadcomposeapp.presentation.components.requestScreenComponents.RequestsScreen
 import com.example.amjadcomposeapp.presentation.viewModel.RequestsViewModel
@@ -20,28 +21,22 @@ import com.example.amjadcomposeapp.presentation.viewModel.RequestsViewModel
 
 fun NavGraphBuilder.requestsGraph(navController: NavHostController) {
 
-    composable(AppRoute.Requests::class.qualifiedName!!) { backStackEntry ->
-        val viewModel: RequestsViewModel = hiltViewModel(backStackEntry)
-        RequestsScreen(navController = navController, viewModel = viewModel)
+    composable<AppRoute.Requests> {
+        val viewModel: RequestsViewModel = hiltViewModel()
+        RequestsScreen(navController, viewModel)
     }
 
-    composable(AppRoute.RequestDetails::class.qualifiedName!!) { backStackEntry ->
+    composable<AppRoute.RequestDetails> { backStackEntry ->
         val parentEntry = remember(backStackEntry) {
-            navController.getBackStackEntry(AppRoute.Requests::class.qualifiedName!!)
+            navController.getBackStackEntry(AppRoute.Requests)
         }
         val viewModel: RequestsViewModel = hiltViewModel(parentEntry)
-
         val selectedRequest by viewModel.selectedRequest.collectAsState()
-        if (selectedRequest != null) {
-            RequestDetailsScreen(navController = navController, item = selectedRequest!!)
-        } else {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text("No Request Selected")
-            }
-        }
+
+        RequestDetailsScreen(
+            navController = navController,
+            item = selectedRequest
+        )
     }
 
 }
