@@ -10,7 +10,7 @@ import com.example.amjadcomposeapp.ui.theme.BackgroundWaitingRequest
 import com.example.amjadcomposeapp.ui.theme.BorderAcceptedRequest
 import com.example.amjadcomposeapp.ui.theme.BorderRejectedRequest
 import com.example.amjadcomposeapp.ui.theme.BorderWaitingRequest
-import com.example.amjadcomposeapp.ui.theme.CalendarItemSelectedBackground
+import com.example.amjadcomposeapp.ui.theme.SmallBannerWaitingTextColor
 import com.example.amjadcomposeapp.ui.theme.CalenderGreenText
 import com.example.amjadcomposeapp.ui.theme.ResignationButtonColor
 
@@ -43,7 +43,7 @@ fun RequestStatus.toSmallBannerUI(): SmallBanner = when (this) {
         BackgroundWaitingRequest,
         BorderWaitingRequest,
         R.string.waiting_request,
-        CalendarItemSelectedBackground,
+        SmallBannerWaitingTextColor,
         R.drawable.ic_pending
     )
 }

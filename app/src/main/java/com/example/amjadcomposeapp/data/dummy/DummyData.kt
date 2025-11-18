@@ -3,6 +3,7 @@ package com.example.amjadcomposeapp.data.dummy
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.AssessmentCardModel
 import com.example.amjadcomposeapp.domain.models.BannerImageModel
+import com.example.amjadcomposeapp.domain.models.BottomBarEmojis
 import com.example.amjadcomposeapp.domain.models.BottomSheetItem
 import com.example.amjadcomposeapp.domain.models.EmojisModel
 import com.example.amjadcomposeapp.domain.models.HrRequestModel
@@ -709,6 +710,28 @@ object DummyData {
             url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             thumbnailUrl = null
         )
+    )
+
+    val bottomBarEmojis=listOf(
+        BottomBarEmojis(
+            R.drawable.emoji_anxious,
+        ),
+        BottomBarEmojis(
+            R.drawable.emoji_sad,
+        ),
+        BottomBarEmojis(
+            R.drawable.emoji_exhausted,
+        ),
+        BottomBarEmojis(
+            R.drawable.emoji_enthusiastic,
+        ),
+        BottomBarEmojis(
+            R.drawable.emoji_happy,
+        ),
+        BottomBarEmojis(
+            R.drawable.emoji_angry,
+        ),
+
     )
 
 }

@@ -68,5 +68,6 @@
     <string name="audios">ملفات صوتية</string>
     <string name="videos">فيديو</string>
     <string name="there_was_an_error">there was an error</string>
+    <string name="what_is_your_felling">ما هو شعورك اليوم؟</string>
 
 </resources>

@@ -2,6 +2,7 @@ package com.example.amjadcomposeapp.domain.repository
 
 import com.example.amjadcomposeapp.domain.models.AssessmentCardModel
 import com.example.amjadcomposeapp.domain.models.BannerImageModel
+import com.example.amjadcomposeapp.domain.models.BottomBarEmojis
 import com.example.amjadcomposeapp.domain.models.BottomSheetItem
 import com.example.amjadcomposeapp.domain.models.HrRequestModel
 import com.example.amjadcomposeapp.domain.models.MostUsedOfferModel
@@ -24,6 +25,7 @@ interface MainScreenRepository {
 
     suspend fun getMostUsedOffers():List<MostUsedOfferModel>
     suspend fun getBottomSheetItems():List<BottomSheetItem>
+    suspend fun getBottomBarEmojis():List<BottomBarEmojis>
 
 
 }

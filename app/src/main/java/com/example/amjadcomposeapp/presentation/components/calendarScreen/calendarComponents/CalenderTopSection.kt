@@ -22,6 +22,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -140,11 +141,10 @@ fun CalendarLazyRowCentered(
 
     // Scroll للعنصر المختار عند التحميل
     LaunchedEffect(Unit) {
-
         val screenCenter = listState.layoutInfo.viewportEndOffset / 2
         listState.scrollToItem(
             index = selectedIndex,
-            scrollOffset = -screenCenter +200
+            scrollOffset = -screenCenter + 200
         )
     }
 
@@ -165,14 +165,15 @@ fun CalendarLazyRowCentered(
                 onClick = {
                     onDateSelected(date)
                     scope.launch {
-                        // Scroll للعنصر المختار مع التمركز
                         val screenCenter = listState.layoutInfo.viewportEndOffset / 2
                         listState.animateScrollToItem(
                             index = index,
                             scrollOffset = -screenCenter + 35
                         )
                     }
-                }
+                },
+                modifier = Modifier
+                    .drawWithCache { onDrawBehind {} }   // This is the magic line
             )
         }
     }

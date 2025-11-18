@@ -2,6 +2,7 @@ package com.example.amjadcomposeapp.presentation.components.homeScreenComponents
 
 import BannerPager
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -42,6 +44,7 @@ fun MainScreen(
     val offersCategory by viewModel.offersCategory.collectAsState()
     val mostUsedOffers by viewModel.mostUsedOffers.collectAsState()
     val bottomSheetItems by viewModel.bottomSheetItems.collectAsState()
+    val bottomBarEmojis by viewModel.bottomBarEmojis.collectAsState()
 
     val context = LocalContext.current
 
@@ -63,62 +66,69 @@ fun MainScreen(
         }
     }
 
-    LazyColumn(
-        modifier = modifier
-            .fillMaxSize()
-            .background(color = White)
+    Box(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(
+            modifier = modifier
+                .fillMaxSize()
+                .background(color = White)
 
-    ) {
+        ) {
 
-        item {
-            AppBar(navController)
+            item {
+                AppBar(navController)
+            }
+            item {
+                BannerPager(banners = banners, navController = navController)
+            }
+            item {
+                HrCard(navController)
+            }
+            item {
+                HRRequests(hrList = hrRequests, navController = navController, context = context)
+            }
+            item {
+                AmjadConsultantCard(onClick = { showBottomSheet = true })
+            }
+            item {
+                Spacer(
+                    Modifier.height(40.dp)
+                )
+            }
+            item {
+                PersonalityCardRow()
+            }
+            item {
+                AssessmentList(assessments = assessments, context = context)
+            }
+            item {
+                SurveysList(serves = surveys, context = context)
+            }
+            item {
+                NewsList(news = news, context = context)
+            }
+            item {
+                WhereToPutYourMoney()
+            }
+            item {
+                OffersCategoryList(offersCategory = offersCategory, context = context)
+            }
+            item {
+                MostWantedText()
+            }
+
+            item {
+                MostUsedOffersList(offers = mostUsedOffers, context = context)
+            }
+            item {
+                JobsPanner()
+            }
+
         }
-        item {
-            BannerPager(banners = banners,navController=navController)
-        }
-        item {
-            HrCard(navController)
-        }
-        item {
-            HRRequests(hrList = hrRequests, navController = navController, context =context)
-        }
-        item {
-            AmjadConsultantCard(onClick = { showBottomSheet = true })
-        }
-        item {
-            Spacer(
-                Modifier.height(40.dp)
+        Row(modifier.align  (Alignment.BottomCenter )) {
+            ParentScreen(
+                emojis = bottomBarEmojis,
             )
         }
-        item {
-            PersonalityCardRow()
-        }
-        item {
-            AssessmentList(assessments = assessments, context=context)
-        }
-        item {
-            SurveysList(serves = surveys, context=context)
-        }
-        item {
-            NewsList(news = news, context=context)
-        }
-        item {
-            WhereToPutYourMoney()
-        }
-        item {
-            OffersCategoryList(offersCategory = offersCategory, context=context)
-        }
-        item {
-            MostWantedText()
-        }
-
-        item {
-            MostUsedOffersList(offers = mostUsedOffers, context=context)
-        }
-        item {
-            JobsPanner()
-        }
-
     }
 }
 

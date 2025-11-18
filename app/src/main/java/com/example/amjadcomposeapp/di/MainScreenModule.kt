@@ -65,7 +65,13 @@ abstract class MainScreenModule {
 
     @Binds
     @Singleton
-    abstract fun bindBottomSheetRepository(
+    abstract fun bindBottomSheetDataSource(
         impl: BottomSheetDataSourceImp
     ): BottomSheetDataSource
+
+    @Binds
+    @Singleton
+    abstract fun bindBottomBarEmojisDatSource(
+        impl: BottomBartDataSourceImp
+    ): BottomBarEmojisDataSource
 }

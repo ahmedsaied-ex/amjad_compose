@@ -22,6 +22,7 @@ class MainScreenViewModel @Inject constructor(
     val offersCategory = MutableStateFlow<UiState<List<OffersCategoryModel>>>(UiState.Loading)
     val mostUsedOffers = MutableStateFlow<UiState<List<MostUsedOfferModel>>>(UiState.Loading)
     val bottomSheetItems = MutableStateFlow<UiState<List<BottomSheetItem>>>(UiState.Loading)
+    val bottomBarEmojis = MutableStateFlow<UiState<List<BottomBarEmojis>>>(UiState.Loading)
 
     init {
         loadMainScreenData()
@@ -47,5 +48,7 @@ class MainScreenViewModel @Inject constructor(
         loadData(offersCategory) { useCases.getOffersCategory() }
         loadData(mostUsedOffers) { useCases.getMostUsedOffers() }
         loadData(bottomSheetItems) { useCases.getBottomSheetItems() }
+        loadData(bottomBarEmojis) { useCases.getBarEmojis()}
+
     }
 }

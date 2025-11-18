@@ -10,5 +10,7 @@ data class MainScreenUseCases @Inject constructor(
     val getNews: GetNews,
     val getOffersCategory: GetOffersCategory,
     val getMostUsedOffers: GetMostUsedOffers,
-    val getBottomSheetItems: GetBottomSheetItems
+    val getBottomSheetItems: GetBottomSheetItems,
+    val getBarEmojis: GetEmojis,
+
 )
