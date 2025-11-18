@@ -2,7 +2,7 @@ package com.example.amjadcomposeapp.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.amjadcomposeapp.domain.models.MediaRequest
+import com.example.amjadcomposeapp.domain.models.MediaModel
 import com.example.amjadcomposeapp.domain.models.MediaType
 import com.example.amjadcomposeapp.domain.use_case.GetMediaUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,8 +16,8 @@ import javax.inject.Inject
 enum class MediaFilter { AUDIO, VIDEO, ARTICLES }
 
 data class MediaUiState(
-    val allMedia: List<MediaRequest> = emptyList(),
-    val filteredMedia: List<MediaRequest> = emptyList(),
+    val allMedia: List<MediaModel> = emptyList(),
+    val filteredMedia: List<MediaModel> = emptyList(),
     val selectedFilter: MediaFilter = MediaFilter.ARTICLES,
     val isLoading: Boolean = true,
     val errorMessage: String? = null
@@ -30,8 +30,8 @@ class MediaViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(MediaUiState())
     val uiState: StateFlow<MediaUiState> = _uiState.asStateFlow()
-    private val _selectedRequest = MutableStateFlow<MediaRequest?>(null)
-    val selectedRequest: StateFlow<MediaRequest?> = _selectedRequest
+    private val _selectedRequest = MutableStateFlow<MediaModel?>(null)
+    val selectedRequest: StateFlow<MediaModel?> = _selectedRequest
 
     init {
         loadMedia()
@@ -78,7 +78,7 @@ class MediaViewModel @Inject constructor(
             it.copy(selectedFilter = filter, filteredMedia = filtered)
         }
     }
-    fun selectRequest(item: MediaRequest) {
+    fun selectRequest(item: MediaModel) {
         _selectedRequest.value = item
     }
 }

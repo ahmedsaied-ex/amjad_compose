@@ -10,11 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.amjadcomposeapp.domain.models.MediaRequest
+import com.example.amjadcomposeapp.domain.models.MediaModel
 
 @Composable
 fun LibraryRequestMainRow(
-    item: MediaRequest,
+    item: MediaModel,
     expanded: Boolean,
 ) {
     Row(

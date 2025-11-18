@@ -48,7 +48,7 @@ fun RequestRow(
             .fillMaxWidth()
             .clickable {
                 viewModel.selectRequest(item)
-                navController.navigate(AppRoute.RequestDetails::class.qualifiedName!!)
+                navController.navigate(AppRoute.RequestDetails)
             }
         ,
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
@@ -61,7 +61,12 @@ fun RequestRow(
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            StatusPill(status = item.status)
+            StatusPill(
+                backgroundColor = item.backgroundColor,
+                textColor = item.titleColor,
+                borderColor = item.borderColor,
+                title = item.title
+            )
             Row(
                 modifier = Modifier.padding(vertical = 16.dp),
                 verticalAlignment = Alignment.CenterVertically

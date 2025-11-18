@@ -17,13 +17,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.amjadcomposeapp.domain.models.MediaRequest
+import com.example.amjadcomposeapp.domain.models.MediaModel
 import com.example.amjadcomposeapp.presentation.navigation.AppRoute
 import com.example.amjadcomposeapp.presentation.viewModel.MediaViewModel
 
 @Composable
 fun LibraryRequestRow(
-    item: MediaRequest,
+    item: MediaModel,
     navController: NavController,
     viewModel: MediaViewModel = viewModel()
 ) {

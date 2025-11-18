@@ -20,19 +20,28 @@ import com.example.amjadcomposeapp.ui.theme.TopColumRequestsBackground
 
 
 @Composable
-fun TopRequestDetails(navController : NavController,name : String,status: RequestStatus,time : String,) {
+fun TopRequestDetails(
+    navController: NavController,
+    name: String,
+    status: RequestStatus,
+    time: String,
+    backgroundColor: Int,
+    textColor: Int,
+    borderColor: Int,
+    title: String
+) {
     Box(modifier = Modifier.fillMaxWidth()) {
         Column {
             Column(
                 modifier = Modifier
                     .background(
-                    brush = Brush.verticalGradient(
-                        colors = listOf(
-                            Color.White,
-                            TopColumRequestsBackground
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                Color.White,
+                                TopColumRequestsBackground
+                            )
                         )
                     )
-                )
                     .padding(horizontal = 16.dp)
             ) {
                 CostumeAppBar(
@@ -41,20 +50,24 @@ fun TopRequestDetails(navController : NavController,name : String,status: Reques
                     text = R.string.request_decription
                 )
                 StatusPill(
-                    status = status
+                    backgroundColor = backgroundColor,
+                    textColor = textColor,
+                    borderColor = borderColor,
+                    title = title
                 )
                 Spacer(modifier = Modifier.height(20.dp))
                 RequestTimeCard(
-                    time =time 
+                    time = time
                 )
                 RequestProfileDetails(
                     name = name
                 )
                 Spacer(modifier = Modifier.height(17.dp))
+
             }
             Spacer(modifier = Modifier.height(17.dp))
-        }
 
+        }
         HRRequestState(modifier = Modifier.align(Alignment.BottomCenter), status = status)
     }
 }

@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -37,12 +38,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
-import com.example.amjadcomposeapp.domain.models.RequestStatus
 import com.example.amjadcomposeapp.presentation.viewModel.FilterOption
 import com.example.amjadcomposeapp.presentation.viewModel.RequestsViewModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.CompanyColor
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.White
 
 @Composable
 fun RequestsScreen(
@@ -60,7 +61,7 @@ fun RequestsScreen(
 
     Column(
         modifier = Modifier
-            .background(CompanyColor.copy(alpha = .02f))
+            .background(White)
             .fillMaxSize()
             ,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -73,6 +74,7 @@ fun RequestsScreen(
 
         LazyColumn(
             modifier = Modifier
+                .background(CompanyColor.copy(alpha = .02f))
                 .padding(horizontal = 16.dp)
                 .fillMaxSize(),
             contentPadding = PaddingValues(vertical = 12.dp)
@@ -95,7 +97,6 @@ fun RequestsHeader(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.background(Color.White)
-            .padding(horizontal = 16.dp)
     ) {
 
         Row(
@@ -142,21 +143,19 @@ fun RequestsHeader(
 }
 
 @Composable
-fun StatusPill(status: RequestStatus) {
-
-    val ui = status.toMainBannerUI()
+fun StatusPill(backgroundColor:Int ,textColor:Int, borderColor:Int,title:String) {
 
     Card(
-        colors = CardDefaults.cardColors(ui.backgroundColor),
-        border = BorderStroke(1.dp, SolidColor(ui.borderColor)),
+        colors = CardDefaults.cardColors(colorResource(backgroundColor)),
+        border = BorderStroke(1.dp, SolidColor(colorResource(borderColor))),
         modifier = Modifier
             .fillMaxWidth()
             .height(52.dp)
     ) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text(
-                text = stringResource(ui.text),
-                color = ui.textColor,
+                text = title,
+                color = colorResource(textColor),
                 fontFamily = Alexandria,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Medium,

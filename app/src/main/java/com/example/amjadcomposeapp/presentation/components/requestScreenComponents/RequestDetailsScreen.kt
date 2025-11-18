@@ -1,5 +1,6 @@
 package com.example.amjadcomposeapp.presentation.components.requestScreenComponents
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,29 +17,51 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.amjadcomposeapp.R
 import com.example.amjadcomposeapp.domain.models.RequestItem
-import com.example.amjadcomposeapp.domain.models.RequestStatus
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
+import com.example.amjadcomposeapp.ui.theme.ResignationButtonColor
 
 @Composable
-fun RequestDetailsScreen(navController: NavController,item: RequestItem?) {
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            ,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+fun RequestDetailsScreen(navController: NavController, item: RequestItem) {
+    if (item.id == "-1") {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(
+                text = "there is no data", style = TextStyle(
+                    color = ResignationButtonColor,
+                    fontSize = 18.sp,
+                    fontFamily = Alexandria,
+                    fontWeight = FontWeight.SemiBold
+                )
+            )
+        }
+    }
+    else{
+        RequestDetailsBody(
+            item = item,
+            navController = navController
+        )
+    }
+}
+
+@Composable
+fun RequestDetailsBody(item: RequestItem, navController: NavController) {
+    LazyColumn(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         item {
             TopRequestDetails(
                 navController = navController,
-                name = item?.name?:"",
-                status = item?.status?: RequestStatus.PENDING,
-                time = item?.description?:"",
+                name = item.name ,
+                status = item.status ,
+                time = item.description,
+                backgroundColor = item.backgroundColor,
+                textColor = item.titleColor,
+                borderColor = item.borderColor,
+                title = item.title,
             )
         }
         item {
@@ -83,44 +106,43 @@ fun RequestDetailsScreen(navController: NavController,item: RequestItem?) {
             )
         }
     }
-
 }
 
 
-@Composable
-fun RequestDetailsCard(
-    firstItem: @Composable () -> Unit, secondItem: @Composable () -> Unit, cardTitle: String
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 20.dp, horizontal = 16.dp),
+    @Composable
+    fun RequestDetailsCard(
+        firstItem: @Composable () -> Unit, secondItem: @Composable () -> Unit, cardTitle: String
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 20.dp, horizontal = 16.dp),
 
-        ) {
-        Text(
-            cardTitle, style = TextStyle(
-                color = MainColorYankies,
-                fontSize = 18.sp,
-                fontFamily = Alexandria,
+            ) {
+            Text(
+                cardTitle, style = TextStyle(
+                    color = MainColorYankies,
+                    fontSize = 18.sp,
+                    fontFamily = Alexandria,
+                )
             )
-        )
-        Spacer(modifier = Modifier.height(10.dp))
-        Card(
-            modifier = Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(
-                containerColor = Color.White
-            ), elevation = CardDefaults.cardElevation(
-                defaultElevation = 5.dp
-            )
-        ) {
-            Column {
-                firstItem()
-                secondItem()
+            Spacer(modifier = Modifier.height(10.dp))
+            Card(
+                modifier = Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(
+                    containerColor = Color.White
+                ), elevation = CardDefaults.cardElevation(
+                    defaultElevation = 5.dp
+                )
+            ) {
+                Column {
+                    firstItem()
+                    secondItem()
+                }
+
             }
 
         }
 
     }
-
-}
 
 

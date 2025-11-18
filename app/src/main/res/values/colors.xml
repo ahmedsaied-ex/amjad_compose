@@ -40,15 +40,7 @@
     <color name="resignation_button_color">#DC3545</color>
     <color name="details_background">#FDFAFB</color>
     <color name="filter_background">#F1F2F4</color>
-    <color name="background_accepted_request">#F0FAFA</color>
-    <color name="border_accepted_request">#DAF3F3</color>
-    <color name="background_rejected_request">#F6EDF1</color>
-    <color name="border_rejected_request">#F7E0EA</color>
-    <color name="background_waiting_request">#FFFCEA</color>
-    <color name="border_waiting_request">#F6F3E4</color>
-    <color name="accepted_text_color">#1C4444</color>
-    <color name="rejected_text_color">#3F182A</color>
-    <color name="waiting_text_color">#413B1A</color>
+
     <color name="ntity_card_border">#ECECF2</color>
     <color name="hr_request_status_background_color">#FBE9EB</color>
     <color name="hr_request_status_border_color">#F1D8DB</color>
@@ -80,6 +72,29 @@
     <color name="text_field_background_color">#F4F4F6</color>
     <color name="attachment_button_color">#178D32</color>
     <color name="slider_row_background">#878787</color>
+
+
+    <color name="background_green_request">#F0FAFA</color>
+    <color name="border_green_request">#DAF3F3</color>
+    <color name="green_text_color">#1C4444</color>
+
+    <color name="background_red_request">#F6EDF1</color>
+    <color name="border_red_request">#F7E0EA</color>
+    <color name="red_text_color">#3F182A</color>
+
+    <color name="background_yellow_request">#FFFCEA</color>
+    <color name="border_yellow_request">#F6F3E4</color>
+    <color name="yellow_text_color">#413B1A</color>
+
+    <color name="background_blue_request">#EAF3F9</color>
+    <color name="border_blue_request">#E2EDF6</color>
+    <color name="blue_text_color">#192F3F</color>
+
+    <color name="background_olive_request">#F3FAF1</color>
+    <color name="border_olive_request">#ECF7EB</color>
+    <color name="olive_text_color">#20411B</color>
+
+
 
 
 

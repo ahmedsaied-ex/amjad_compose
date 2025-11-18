@@ -11,13 +11,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.amjadcomposeapp.domain.models.MediaRequest
+import com.example.amjadcomposeapp.domain.models.MediaModel
 import com.example.amjadcomposeapp.ui.theme.Alexandria
 import com.example.amjadcomposeapp.ui.theme.DateColor
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
-fun MediaTextContent(item: MediaRequest, expanded: Boolean, modifier: Modifier) {
+fun MediaTextContent(item: MediaModel, expanded: Boolean, modifier: Modifier) {
     Column(modifier = modifier) {
         Text(
             text = item.title,

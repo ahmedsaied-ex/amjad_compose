@@ -31,9 +31,9 @@ fun RequestFilterBar(
 ) {
     Row(
         modifier = Modifier
-            .clip(RoundedCornerShape(20.dp))
+            .clip(RoundedCornerShape(15.dp))
             .background(FilterBackground)
-            .padding(horizontal = 4.dp, vertical = 4.dp),
+            .padding(horizontal = 2.dp, vertical = 2.dp),
     ) {
 
         RequestFilterChipItem(
@@ -51,7 +51,7 @@ fun RequestFilterBar(
         RequestFilterChipItem(
             option = FilterOption.REJECTED,
             isSelected = selected == FilterOption.REJECTED,
-            text =  stringResource(R.string.rejected_request)
+            text =  stringResource(R.string.rejected)
         ) { onSelectedChange(it) }
 
     }
@@ -71,7 +71,7 @@ private fun RequestFilterChipItem(
             .clip(RoundedCornerShape(20.dp))
             .background(bgColor)
             .clickable { onClick(option) }
-            .padding(horizontal = 5.dp, vertical = 4.dp)) {
+            .padding(horizontal = 12.dp, vertical = 4.dp)) {
         Text(
             text = text, style = TextStyle(
                 color = textColor,
