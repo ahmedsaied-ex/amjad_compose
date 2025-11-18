@@ -25,39 +25,15 @@ import com.example.amjadcomposeapp.ui.theme.FilterBackground
 import com.example.amjadcomposeapp.ui.theme.MainColorYankies
 
 @Composable
-private fun LibraryFilterChipItem(
-    option: MediaFilter, isSelected: Boolean, text: String, onClick: (MediaFilter) -> Unit
-) {
-    val bgColor = if (isSelected) Color.White else Color.Transparent
-    val textColor = if (isSelected) CompanyColor else MainColorYankies
-
-    Box(
-        modifier = Modifier
-            .clip(RoundedCornerShape(20.dp))
-            .background(bgColor)
-            .clickable { onClick(option) }
-            .padding(horizontal = 12.dp, vertical = 8.dp)) {
-        Text(
-            text = text, style = TextStyle(
-                color = textColor,
-                fontWeight = FontWeight.Medium,
-                fontSize = 14.sp,
-                fontFamily = Alexandria
-            )
-        )
-    }
-}
-
-@Composable
 fun LibraryFilterBar(
     selected: MediaFilter,
     onSelectedChange: (MediaFilter) -> Unit,
 ) {
     Row(
         modifier = Modifier
-            .clip(RoundedCornerShape(20.dp)) // هنا نعمل الحواف مستديرة
+            .clip(RoundedCornerShape(15.dp)) // هنا نعمل الحواف مستديرة
             .background(FilterBackground)
-            .padding(horizontal = 8.dp, vertical = 4.dp),
+            .padding(horizontal = 2.dp, vertical = 2.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
 
@@ -79,5 +55,29 @@ fun LibraryFilterBar(
             text = stringResource(R.string.videos)
         ) { onSelectedChange(it) }
 
+    }
+}
+
+@Composable
+private fun LibraryFilterChipItem(
+    option: MediaFilter, isSelected: Boolean, text: String, onClick: (MediaFilter) -> Unit
+) {
+    val bgColor = if (isSelected) Color.White else Color.Transparent
+    val textColor = if (isSelected) CompanyColor else MainColorYankies
+
+    Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(20.dp))
+            .background(bgColor)
+            .clickable { onClick(option) }
+            .padding(horizontal = 12.dp, vertical = 6.dp)) {
+        Text(
+            text = text, style = TextStyle(
+                color = textColor,
+                fontWeight = FontWeight.Medium,
+                fontSize = 14.sp,
+                fontFamily = Alexandria
+            )
+        )
     }
 }

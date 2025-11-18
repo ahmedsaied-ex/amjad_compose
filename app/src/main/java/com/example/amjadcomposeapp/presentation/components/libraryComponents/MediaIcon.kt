@@ -15,12 +15,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.amjadcomposeapp.R
-import com.example.amjadcomposeapp.domain.models.MediaRequest
+import com.example.amjadcomposeapp.domain.models.MediaModel
 import com.example.amjadcomposeapp.domain.models.MediaType
 import com.example.amjadcomposeapp.ui.theme.FilterBackground
 
 @Composable
-fun MediaIcon(item: MediaRequest) {
+fun MediaIcon(item: MediaModel) {
     Column(
         modifier = Modifier.fillMaxHeight(),
         verticalArrangement = Arrangement.Top

@@ -7,6 +7,8 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import com.example.amjadcomposeapp.domain.models.RequestItem
+import com.example.amjadcomposeapp.domain.models.RequestStatus
 import com.example.amjadcomposeapp.presentation.components.requestScreenComponents.RequestDetailsScreen
 import com.example.amjadcomposeapp.presentation.components.requestScreenComponents.RequestsScreen
 import com.example.amjadcomposeapp.presentation.viewModel.RequestsViewModel
@@ -27,8 +29,16 @@ fun NavGraphBuilder.requestsGraph(navController: NavHostController) {
         val selectedRequest by viewModel.selectedRequest.collectAsState()
 
         RequestDetailsScreen(
-            navController = navController,
-            item = selectedRequest
+            navController, selectedRequest?: RequestItem(
+                id = "-1",
+                name = "",
+                title = "",
+                description = "",
+                status = RequestStatus.REJECTED,
+                titleColor = 0,
+                backgroundColor = 0,
+                borderColor = 0
+            )
         )
     }
 

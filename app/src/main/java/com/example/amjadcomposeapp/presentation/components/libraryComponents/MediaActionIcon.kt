@@ -10,11 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.amjadcomposeapp.R
-import com.example.amjadcomposeapp.domain.models.MediaRequest
+import com.example.amjadcomposeapp.domain.models.MediaModel
 import com.example.amjadcomposeapp.domain.models.MediaType
 
 @Composable
-fun MediaActionIcon(item: MediaRequest, modifier: Modifier) {
+fun MediaActionIcon(item: MediaModel, modifier: Modifier) {
     if (item.type != MediaType.ARTICLES) {
         Box(
             modifier = modifier
