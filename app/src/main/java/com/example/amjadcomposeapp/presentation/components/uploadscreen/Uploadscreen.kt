@@ -149,14 +149,10 @@ fun UploadScreen(viewModel: UploadViewModel, navController: NavController) {
                     NotesTextField()
                     Spacer(modifier = Modifier.height(60.dp))
                 }
-
-
             }
-
-
         }
         Button(
-            onClick = { /* TODO: upload file */ },
+            onClick = {},
             shape = RoundedCornerShape(6.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = AttachmentButtonColor, contentColor = Color.White

@@ -29,7 +29,6 @@ class FilePickerHelper @Inject constructor(
         cursor?.moveToFirst()
 
         val size = if (sizeIndex >= 0) cursor?.getLong(sizeIndex) else null
-
         cursor?.close()
         return size ?: 0L
     }

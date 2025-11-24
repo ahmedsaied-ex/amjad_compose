@@ -14,7 +14,7 @@
     <string name="name">عمرو عبد الله</string>
     <string name="company_name">رعاية للتأمينات</string>
     <string name="department_name">التأمين الصحي</string>
-    <string name="department">:قسم</string>
+    <string name="department">قسم:</string>
     <string name="attendance_location">النطاق الجغرافي لتسجيل الحضور والانصراف فيه</string>
     <string name="pranch">فرع الرياض الرئيسي</string>
     <string name="today_emotions">ما هو شعورك اليوم؟</string>

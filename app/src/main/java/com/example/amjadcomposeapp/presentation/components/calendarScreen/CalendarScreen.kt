@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -14,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.AttendanceAndWithdrawalRow
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.AttendanceCalendarSection
@@ -22,6 +24,7 @@ import com.example.amjadcomposeapp.presentation.components.calendarScreen.calend
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.RedCalendarRedText
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.SelectedDateText
 import com.example.amjadcomposeapp.presentation.components.calendarScreen.calendarComponents.WorkingHours
+import com.example.amjadcomposeapp.presentation.viewModel.AttendanceViewModel
 import com.example.amjadcomposeapp.ui.theme.DateColor
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -31,9 +34,13 @@ import java.util.Locale
 fun CustomCalendar(navController: NavController) {
     val today = LocalDate.now()
     val days = remember { (-15..15).map { today.plusDays(it.toLong()) } }
+    val viewModel: AttendanceViewModel = viewModel()
 
     var selectedDate by remember { mutableStateOf(today) }
 
+    LaunchedEffect(Unit) {
+        viewModel.loadAttendance()
+    }
     // Arabic locale
     val arabicLocale = Locale("ar")
     val dayFormatter = DateTimeFormatter.ofPattern("EEE", arabicLocale)

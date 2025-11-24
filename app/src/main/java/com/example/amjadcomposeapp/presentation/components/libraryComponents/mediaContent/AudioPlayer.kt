@@ -37,7 +37,7 @@ fun AudioPlayer(audioUrl: String, title: String) {
         isPlaying = isPlaying,
         currentPosition = currentPosition,
         duration = duration,
-        errorMessage = errorMessage, // Show error in UI if needed
+        errorMessage = errorMessage,
         onPlayPause = {
             try {
                 if (exoPlayer.isPlaying) {
@@ -64,7 +64,6 @@ fun AudioPlayer(audioUrl: String, title: String) {
     )
 }
 
-// Helper function to format milliseconds to mm:ss
 fun formatMillis(millis: Long): String {
     val totalSeconds = (millis / 1000).coerceAtLeast(0L) // avoid negative
     val seconds = totalSeconds % 60

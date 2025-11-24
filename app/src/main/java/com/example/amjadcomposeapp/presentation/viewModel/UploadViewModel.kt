@@ -20,13 +20,10 @@ class UploadViewModel @Inject constructor(
 
     private val maxFiles = 5
 
-
-
     fun requestPermission(permissionLauncher: (String) -> Unit) {
         val permission = filePickerHelper.getReadPermission()
         permissionLauncher(permission)
     }
-
     fun onFilePicked(uri: Uri, context: Context) {
 
         if (selectedFiles.value.size >= maxFiles) {
@@ -43,8 +40,7 @@ class UploadViewModel @Inject constructor(
         }
 
         val fileData = filePickerHelper.getFileData(uri)
-
-        selectedFiles.value = selectedFiles.value + fileData
+        selectedFiles.value += fileData
     }
 
 

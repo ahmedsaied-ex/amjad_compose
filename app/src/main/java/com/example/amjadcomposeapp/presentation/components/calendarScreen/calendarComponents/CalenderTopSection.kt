@@ -136,10 +136,8 @@ fun CalendarLazyRowCentered(
     val listState = rememberLazyListState()
     val scope = rememberCoroutineScope()
 
-    // حساب العنصر المختار
     val selectedIndex = days.indexOf(selectedDate).takeIf { it >= 0 } ?: 0
 
-    // Scroll للعنصر المختار عند التحميل
     LaunchedEffect(Unit) {
         val screenCenter = listState.layoutInfo.viewportEndOffset / 2
         listState.scrollToItem(
